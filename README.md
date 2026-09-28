@@ -3,7 +3,7 @@
 *Another Code: R — A Journey into Lost Memories* (Wii, 유럽판 `RNOP01`) 비공식 한국어 팬 패치입니다.
 대사는 일본어판(『アナザーコード：R 記憶の扉』) 원문을 기준으로 번역했고, 유럽판 디스크에 넣었습니다.
 
-**제작: arqhive** · **상태: 시험판(배포 전)**
+**제작: arqhive** · **최신 버전: [v0.1](../../releases/tag/v0.1)**
 
 - 대사 전체를 한글화했습니다(본편, 조사·상호작용 대사, 줄거리, 퍼즐).
 - 인물·아이템 설명, DAS 메일, 기억 퀴즈, 세이브·오류 메시지, 장 이름, 장소 이름을 한글화했습니다.
@@ -35,7 +35,7 @@
 
 ### 적용 방법
 
-1. 배포 페이지에서 `AnotherCodeR_KO_v<버전>.zip`을 받아 압축을 풉니다.
+1. [릴리즈 페이지](../../releases/latest)에서 `AnotherCodeR_KO_v<버전>.zip`을 받아 압축을 풉니다.
 2. 원본 이미지를 `패치하기.bat` 위에 끌어다 놓습니다. 원본을 같은 폴더에 두고 더블클릭해도 됩니다.
 3. "완료"가 나오면 원본과 같은 폴더에 `Another Code R (Korean) [RNOP01].iso`(WBFS 원본이면 `.wbfs`)가 생깁니다. 원본은 바뀌지 않습니다.
 
@@ -112,6 +112,7 @@ translation/
   GLOSSARY.md      인물·장소·표기 원칙
 docs/
   TECHNICAL.md     파일 포맷과 한글화 방식
+  releases/        릴리즈 노트
 work/              (git 제외) 추출본·빌드 결과·원문 대조본
 ```
 
