@@ -99,13 +99,14 @@ def add(name, chars):
 EXTRA = '「」『』－＊　♪＋※○＜＞ㄱ⇔'  # 번역문에 쓰였지만 영어 폰트에 없는 기호
 
 
-def main():
+def main(charset=None):
+    """charset: 넣을 글자를 담은 텍스트 파일(없으면 KS X 1001 한글 2,350자 + EXTRA)"""
     chars = ksx1001_hangul() + list(EXTRA)
-    if len(sys.argv) > 1:
-        chars = sorted(set(open(sys.argv[1], encoding='utf-8').read()) - set('\n\r'))
+    if charset:
+        chars = sorted(set(open(charset, encoding='utf-8').read()) - set('\n\r'))
     for name in SPEC:
         add(name, chars)
 
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1] if len(sys.argv) > 1 else None)

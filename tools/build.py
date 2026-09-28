@@ -45,7 +45,8 @@ def verify(out_iso):
     print(f'  검증: 파일 {n}개 모두 일치')
 
 
-def main(out_iso=DEFAULT_ISO):
+def build_files():
+    """바뀐 게임 파일을 work/build 에 만든다(ISO 조립 전 단계)."""
     sys.stdout.reconfigure(encoding='utf-8')
     paths.ensure_extracted()
     if paths.BUILD.exists():
@@ -56,6 +57,10 @@ def main(out_iso=DEFAULT_ISO):
     print('[4] 대화창 이름표'); print('    ', nameplate.main())
     print('[5] 기타 텍스트(.MESS 등)'); insert_mess.main()
     print('[6] main.dol'); print('   ', patch_dol.main())
+
+
+def main(out_iso=DEFAULT_ISO):
+    build_files()
     print('[7] ISO(원본 배치 유지)'); inplace.main(str(out_iso))
     print('[8] 검증'); verify(out_iso)
     print('완료:', out_iso)

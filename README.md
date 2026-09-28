@@ -10,7 +10,7 @@
 - 타이틀 로고, 장소 이름 띠, 지도, 인물 소개 카드, 대화창 이름표, DAS 메뉴, 장 제목, 오프닝 날짜·장소 자막, 엔딩 이름, 리모컨 스트랩 경고 화면, 세이브 배너 등 그림 글씨를 한글화했습니다.
 - 게임 폰트 4벌에 한글 2,350자를 넣었습니다(맑은 고딕, 흰 글씨·검은 테두리).
 - 본체 언어 설정과 관계없이 한국어로 나옵니다.
-- **원본 디스크의 파일 배치를 그대로 유지해 패치 크기를 줄였습니다.**
+- **파일 단위 패처**라서 덤프 형태(정본 ISO, WBFS, WBFS에서 변환한 ISO, 업데이트 파티션을 뺀 덤프)가 달라도 게임 파일만 같으면 적용됩니다.
 
 > 이 저장소에는 **게임 데이터(롬·디스크 이미지, 추출한 원문 대사, 원본 그래픽, 스크린샷)가 들어 있지 않습니다.**
 > 패치를 만들거나 적용하려면 본인이 소유한 게임에서 직접 덤프한 원본이 필요합니다.
@@ -19,23 +19,38 @@
 
 ### 준비물
 
-- 유럽판 ISO(`RNOP01`). 일본판·북미판에는 적용할 수 없습니다. RVZ·WBFS 등으로 갖고 있다면 Dolphin으로 ISO로 바꾼 뒤 적용하세요.
-- xdelta 패치 도구. [Delta Patcher](https://github.com/marco-calautti/DeltaPatcher)(GUI)나 [xdelta3](https://github.com/jmacd/xdelta-gpl/releases)(명령줄)를 쓰면 됩니다.
+- 유럽판 디스크 이미지(`RNOP01`). 일본판·북미판에는 적용할 수 없습니다.
+- Windows 10 이상. 패처에 필요한 도구(wit, xdelta3)가 함께 들어 있어 따로 설치할 것은 없습니다.
+- 빈 공간 약 10GB.
+
+### 지원 형식
+
+| 원본 | 결과 |
+|---|---|
+| ISO (정본 덤프, WBFS에서 변환한 ISO) | ISO |
+| WBFS | WBFS |
+| CISO, WIA, WDF | ISO |
+| RVZ | 지원 안 함. Dolphin에서 ISO로 변환한 뒤 적용 |
+| NKit | 지원 안 함. 원본 ISO로 복원한 뒤 적용 |
 
 ### 적용 방법
 
-1. 배포 페이지에서 `AnotherCodeR_KO_v<버전>.xdelta`를 받습니다.
-2. 유럽판 원본 ISO에 패치를 적용합니다. xdelta3에서는 다음처럼 실행합니다.
+1. 배포 페이지에서 `AnotherCodeR_KO_v<버전>.zip`을 받아 압축을 풉니다.
+2. 원본 이미지를 `패치하기.bat` 위에 끌어다 놓습니다. 원본을 같은 폴더에 두고 더블클릭해도 됩니다.
+3. "완료"가 나오면 원본과 같은 폴더에 `Another Code R (Korean) [RNOP01].iso`(WBFS 원본이면 `.wbfs`)가 생깁니다. 원본은 바뀌지 않습니다.
 
-   ```
-   xdelta3 -d -s "Another Code - R [RNOP01].iso" AnotherCodeR_KO_v<버전>.xdelta "Another Code R (Korean).iso"
-   ```
+결과 형식을 바꾸려면 두 번째 인자로 결과 파일을 지정합니다.
+
+```
+powershell -ExecutionPolicy Bypass -File patch.ps1 "원본.iso" "결과.wbfs"
+```
 
 유럽판이지만 60Hz(EuRGB60)로 실행됩니다. 영상도 29.97fps로 일본판과 같습니다.
+그래서 UWUVCI로 Wii U에 주입할 때는 영상 모드 패치(PAL to NTSC)를 **끄세요**. 켜면 업데이트 파티션이 없는 이미지에서 `wii-vmc.exe` 경로 오류로 주입이 실패합니다.
 
 ### 실행 환경
 
-- **확인함**: Dolphin.
+- **확인함**: Dolphin, Wii U vWii(UWUVCI 주입, 60Hz).
 
 ### 알려진 문제
 
@@ -52,19 +67,22 @@
   저장소 루트(또는 바로 아래 폴더)에 `Another Code - R [RNOP01].iso`, `Another Code - R [RNOJ01].iso`로 두거나 환경 변수 `ACR_EU_ISO`, `ACR_JP_ISO`로 지정합니다.
 - 맑은 고딕(`C:/Windows/Fonts/malgunbd.ttf`). 한글 폰트와 이름표를 그리는 데 씁니다.
 - [wit](https://wit.wiimm.de/)(Wiimms ISO Tools). 추출과 원본 배치 유지 ISO 조립에 씁니다. `tools/bin/wit-v3.05a-r8638-cygwin64/`에 두거나 PATH, 환경 변수 `WIT`로 지정합니다.
-- xdelta3. 배포용 패치를 만들 때만 필요하며, `tools/bin/xdelta3.exe`나 PATH, 환경 변수 `XDELTA3`로 둡니다.
+- xdelta3. 배포용 패처를 만들 때만 필요하며, `tools/bin/xdelta3.exe`나 PATH, 환경 변수 `XDELTA3`로 둡니다.
 
 ### 빌드
 
 ```bash
-# 한글 ISO 만들기 (work/AnotherCodeR_KO.iso)
+# 한글 ISO 만들기 (work/AnotherCodeR_KO.iso, 원본 배치 유지)
 python tools/build.py
 
-# 배포용 패치까지: 빌드, xdelta 패치 생성, 적용 결과 해시 검증
-python tools/make_patch.py 0.1
+# 배포용 패처 만들기 (release/AnotherCodeR_KO_v0.1/ 과 .zip)
+python tools/make_patcher.py 0.1
 ```
 
-처음 실행하면 두 ISO를 `work/eu`, `work/jp`에 추출합니다. 폰트 4벌, 대사 파일 83개, 이미지(레이아웃 묶음 약 200개), 대화창 이름표, 기타 텍스트 11개, `main.dol` 패치를 만든 뒤 원본 배치를 유지한 ISO를 조립하고, 결과 ISO의 파일 7,054개를 모두 빌드 결과·원본과 비교해 검증합니다.
+처음 실행하면 두 ISO를 `work/eu`, `work/jp`에 추출합니다. 폰트 4벌, 대사 파일 83개, 이미지(레이아웃 묶음 약 200개), 대화창 이름표, 기타 텍스트 11개, `main.dol` 패치를 `work/build`에 만듭니다.
+- `build.py`는 원본 배치를 유지한 ISO를 조립하고, 결과 ISO의 파일 7,054개를 모두 빌드 결과·원본과 비교해 검증합니다.
+- `make_patcher.py`는 바뀐 파일 303개마다 유럽판 원본과의 xdelta 차분을 만들고, [`patcher/`](patcher)의 `패치하기.bat`·`patch.ps1`, wit, xdelta3, [`release/README_한국어.txt`](release/README_한국어.txt)와 함께 zip으로 묶습니다.
+  배포 전에는 zip을 푼 사본으로 원본 ISO와 WBFS에 적용해 보고, 결과를 추출해 모든 파일을 비교합니다.
 Windows Git Bash에서는 `PYTHONIOENCODING=utf-8`을 붙이세요.
 
 ### 번역 수정
@@ -87,6 +105,8 @@ tools/             빌드·원문 대조 도구 (paths.py가 기준 경로를 �
   assets/eu_only/  유럽판에만 있는 그림(장 제목, 엔딩 이름, 오프닝 자막 등)의 한글화 이미지
   data/            대화창 이름표 이름
   bin/             (git 제외) wit, xdelta3
+patcher/           사용자용 파일 단위 패처(패치하기.bat, patch.ps1)
+release/           패처 설명서(README_한국어.txt), 패처 폴더·zip은 git 제외
 translation/
   ko/              번역 JSON (위치 키, 화자, 한국어)
   GLOSSARY.md      인물·장소·표기 원칙

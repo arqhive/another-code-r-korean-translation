@@ -17,6 +17,21 @@
 
 FST에는 Shift-JIS 파일 이름(`PUZZLE_MESS１.BMG` 등)이 있습니다. wit 추출본에서는 이 이름이 latin-1로 풀려 있어 되돌려 맞춥니다.
 
+## 배포용 파일 단위 패처 (`tools/make_patcher.py`, `patcher/`)
+
+ISO 통째 xdelta는 원본 ISO가 바이트 단위로 같아야 적용됩니다. 그런데 이 게임의 개발용 덤프만 해도 업데이트 파티션이 빠져 있어(파티션 표에 DATA 하나, 0x50000부터 0), 정본 덤프를 가진 사람에게는 맞지 않습니다. 그래서 바뀐 게임 파일 303개마다 원본과의 xdelta 차분만 배포합니다.
+
+사용자 PC에서 `patch.ps1`이 하는 일:
+1. `wit extract --psel data,update --pmode name`으로 게임 파티션을 `_work/DATA`, 업데이트 파티션(있으면)을 `_work/UPDATE`에 풉니다.
+2. 파일마다 원본 MD5 확인 → 차분 적용 → 결과 MD5를 확인합니다.
+   - xdelta3는 제어 문자가 섞인 파일 이름(`PUZZLE_MESS\x82P.BMG`)을 열지 못해 임시 이름으로 복사해 적용합니다.
+3. 업데이트 파티션이 없으면 게임 파티션의 `boot.bin`·`bi2.bin`·`apploader.img`·`main.dol`·티켓·TMD로 빈 업데이트 파티션(약 4MB, 오프셋 0x50000)을 만듭니다.
+   - UWUVCI의 영상 모드 패치(PAL to NTSC)는 풀린 이미지의 `DATA\sys`에 `wii-vmc.exe`를 넣습니다. 파티션이 하나뿐이면 `DATA\` 접두어 없이 풀려서 이 단계가 경로 오류로 실패합니다.
+   - 영상 모드 패치를 끄면 파티션 하나짜리도 주입됩니다(사용자 확인). 이 게임은 원래 60Hz라 끄는 것을 권합니다. 업데이트 파티션은 이 옵션을 켠 경우를 위한 보험입니다.
+4. `wit copy`로 DATA와 UPDATE를 함께 묶습니다.
+
+wit으로 다시 묶으면 파일 배치가 4바이트 간격이 됩니다(7,049개 중 6,610개가 32바이트 경계에서 벗어남). 멈춤의 원인이던 영어 `MEMORY.dat`는 번역본에서 빠진 개수 두 개를 채웠습니다. 다른 언어 폴더의 `MEMORY.dat`는 언어 분기를 영어로 고정해서 읽히지 않습니다.
+
 ## 대사 (BMG, `tools/bmg.py`, `tools/insert_bmg.py`)
 
 - 형식: `MESGbmg1`, 인코딩 UTF-8. INF1(항목 8바이트: DAT1 안 위치 4 + 속성 4) + DAT1. MID1 없음(메시지 번호 = 파일 안 순번).
