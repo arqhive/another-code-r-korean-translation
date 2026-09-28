@@ -1,0 +1,25 @@
+{
+ "file": "MESS/PUZZLE_MESS_081.BMG",
+ "type": "bmg",
+ "count": 7,
+ "messages": [
+  {
+   "id": 1,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "「RAS 부품 입력: 또 하나의 방법」…?"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "응? 이게 뭘까…"
+    }
+   ]
+  }
+ ]
+}

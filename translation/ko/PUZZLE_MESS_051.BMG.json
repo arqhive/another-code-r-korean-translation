@@ -1,0 +1,24 @@
+{
+ "file": "MESS/PUZZLE_MESS_051.BMG",
+ "type": "bmg",
+ "count": 7,
+ "messages": [
+  {
+   "id": 1,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "…마이크! 괜찮아요?"
+    },
+    {
+     "speaker": "マイク",
+     "ko": "…지나는… 소피아의 방에 있어."
+    },
+    {
+     "speaker": "マイク",
+     "ko": "로빈스 박사님의 메일을…"
+    }
+   ]
+  }
+ ]
+}

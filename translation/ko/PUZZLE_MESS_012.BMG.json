@@ -1,0 +1,34 @@
+{
+ "file": "MESS/PUZZLE_MESS_012.BMG",
+ "type": "bmg",
+ "count": 8,
+ "messages": [
+  {
+   "id": 2,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "됐다, 가방에 걸렸어!"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "…아아, 실패야."
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "…빨리 밧줄을 감아야 해."
+    }
+   ]
+  }
+ ]
+}

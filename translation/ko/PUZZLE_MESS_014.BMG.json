@@ -1,0 +1,16 @@
+{
+ "file": "MESS/PUZZLE_MESS_014.BMG",
+ "type": "bmg",
+ "count": 7,
+ "messages": [
+  {
+   "id": 5,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "아, 너무 세게 했어."
+    }
+   ]
+  }
+ ]
+}

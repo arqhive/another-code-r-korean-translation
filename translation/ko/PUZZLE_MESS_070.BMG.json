@@ -1,0 +1,16 @@
+{
+ "file": "MESS/PUZZLE_MESS_070.BMG",
+ "type": "bmg",
+ "count": 7,
+ "messages": [
+  {
+   "id": 1,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "어? 안 돌아가…"
+    }
+   ]
+  }
+ ]
+}

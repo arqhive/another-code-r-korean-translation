@@ -1,0 +1,34 @@
+{
+ "file": "MESS/PUZZLE_MESS_028.BMG",
+ "type": "bmg",
+ "count": 8,
+ "messages": [
+  {
+   "id": 0,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "빠진 뚜껑을 다시 덮어야겠어."
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "…응? 뭔가 걸려 있어."
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "…응? 뒷면에 뭔가 붙어 있어…"
+    }
+   ]
+  }
+ ]
+}

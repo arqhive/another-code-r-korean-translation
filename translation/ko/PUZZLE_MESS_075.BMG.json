@@ -1,0 +1,25 @@
+{
+ "file": "MESS/PUZZLE_MESS_075.BMG",
+ "type": "bmg",
+ "count": 7,
+ "messages": [
+  {
+   "id": 1,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "뭔가 표시됐어…"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "어? 아무 일도 안 일어나네…"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,445 @@
+{
+ "설명": "유럽판에만 있는 영어 이미지(일본판은 영상에 글씨가 박혀 있었음). 장 제목 빛번짐 마스크(*ap)는 도구가 자동 생성, Chapter N 글씨는 영어 유지.",
+ "items": [
+  {
+   "png": "01_장제목/001_chapter01_01.png",
+   "size": [
+    256,
+    117
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_01.ARC/CHAPTER_01/timg/chapter01_01.tpl#0"
+  },
+  {
+   "png": "01_장제목/002_chapter01_02.png",
+   "size": [
+    616,
+    132
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_01.ARC/CHAPTER_01/timg/chapter01_02.tpl#0"
+  },
+  {
+   "png": "01_장제목/003_chapter02_01.png",
+   "size": [
+    264,
+    117
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_02.ARC/CHAPTER_02/timg/chapter02_01.tpl#0"
+  },
+  {
+   "png": "01_장제목/004_chapter02_02.png",
+   "size": [
+    568,
+    142
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_02.ARC/CHAPTER_02/timg/chapter02_02.tpl#0"
+  },
+  {
+   "png": "01_장제목/005_chapter03_01.png",
+   "size": [
+    264,
+    117
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_03.ARC/CHAPTER_03/timg/chapter03_01.tpl#0"
+  },
+  {
+   "png": "01_장제목/006_chapter03_02.png",
+   "size": [
+    696,
+    141
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_03.ARC/CHAPTER_03/timg/chapter03_02.tpl#0"
+  },
+  {
+   "png": "01_장제목/007_chapter04_01.png",
+   "size": [
+    264,
+    117
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_04.ARC/CHAPTER_04/timg/chapter04_01.tpl#0"
+  },
+  {
+   "png": "01_장제목/008_chapter04_02.png",
+   "size": [
+    628,
+    132
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_04.ARC/CHAPTER_04/timg/chapter04_02.tpl#0"
+  },
+  {
+   "png": "01_장제목/009_chapter05_01.png",
+   "size": [
+    264,
+    117
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_05.ARC/CHAPTER_05/timg/chapter05_01.tpl#0"
+  },
+  {
+   "png": "01_장제목/010_chapter05_02.png",
+   "size": [
+    640,
+    132
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_05.ARC/CHAPTER_05/timg/chapter05_02.tpl#0"
+  },
+  {
+   "png": "01_장제목/011_chapter06_01.png",
+   "size": [
+    264,
+    117
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_06.ARC/CHAPTER_06/timg/chapter06_01.tpl#0"
+  },
+  {
+   "png": "01_장제목/012_chapter06_02.png",
+   "size": [
+    696,
+    142
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_06.ARC/CHAPTER_06/timg/chapter06_02.tpl#0"
+  },
+  {
+   "png": "01_장제목/013_chapter07_01.png",
+   "size": [
+    260,
+    117
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_07.ARC/CHAPTER_07/timg/chapter07_01.tpl#0"
+  },
+  {
+   "png": "01_장제목/014_chapter07_02.png",
+   "size": [
+    688,
+    142
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_07.ARC/CHAPTER_07/timg/chapter07_02.tpl#0"
+  },
+  {
+   "png": "01_장제목/015_chapter08_01.png",
+   "size": [
+    264,
+    117
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_08.ARC/CHAPTER_08/timg/chapter08_01.tpl#0"
+  },
+  {
+   "png": "01_장제목/016_chapter08_02.png",
+   "size": [
+    692,
+    141
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_08.ARC/CHAPTER_08/timg/chapter08_02.tpl#0"
+  },
+  {
+   "png": "01_장제목/017_chapter09_01.png",
+   "size": [
+    332,
+    117
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_09.ARC/CHAPTER_09/timg/chapter09_01.tpl#0"
+  },
+  {
+   "png": "01_장제목/018_chapter09_02.png",
+   "size": [
+    696,
+    141
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/CHAPTER_09.ARC/CHAPTER_09/timg/chapter09_02.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/001_ending01_01.png",
+   "size": [
+    280,
+    35
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_01.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/002_ending01_02.png",
+   "size": [
+    296,
+    35
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_02.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/003_ending01_03.png",
+   "size": [
+    164,
+    35
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_03.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/004_ending01_04.png",
+   "size": [
+    288,
+    35
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_04.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/005_ending01_05.png",
+   "size": [
+    192,
+    35
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_05.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/006_ending01_06.png",
+   "size": [
+    300,
+    41
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_06.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/007_ending01_07.png",
+   "size": [
+    144,
+    35
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_07.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/008_ending01_08.png",
+   "size": [
+    196,
+    35
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_08.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/009_ending01_09.png",
+   "size": [
+    228,
+    35
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_09.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/010_ending01_10.png",
+   "size": [
+    232,
+    35
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_10.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/011_ending01_11.png",
+   "size": [
+    200,
+    41
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_11.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/012_ending01_12.png",
+   "size": [
+    284,
+    41
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_12.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/013_ending01_13.png",
+   "size": [
+    192,
+    41
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_13.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/014_ending01_14.png",
+   "size": [
+    224,
+    35
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_14.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/015_ending01_15.png",
+   "size": [
+    324,
+    35
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_15.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/016_ending01_16.png",
+   "size": [
+    188,
+    41
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_16.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/017_ending01_17.png",
+   "size": [
+    300,
+    35
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_17.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/018_ending01_18.png",
+   "size": [
+    244,
+    41
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_18.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/019_ending01_19.png",
+   "size": [
+    300,
+    35
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_19.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/020_ending01_20.png",
+   "size": [
+    284,
+    41
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_20.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/021_ending01_21.png",
+   "size": [
+    232,
+    41
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_21.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/022_ending01_22.png",
+   "size": [
+    320,
+    41
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_22.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/023_ending01_23.png",
+   "size": [
+    256,
+    35
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_23.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/024_ending01_24.png",
+   "size": [
+    236,
+    35
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_24.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/025_ending01_25.png",
+   "size": [
+    104,
+    35
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_25.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/026_ending01_26.png",
+   "size": [
+    288,
+    41
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_01.ARC/ENDING_01/timg/ending01_26.tpl#0"
+  },
+  {
+   "png": "02_엔딩이름/027_ending03_02.png",
+   "size": [
+    140,
+    43
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/ENDING_03.ARC/ENDING_03/timg/ending03_02.tpl#0"
+  },
+  {
+   "png": "03_오프닝자막/001_opTEXT_01_01.png",
+   "size": [
+    288,
+    36
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/TITLE_LOGO.ARC/TITLE_LOGO/timg/opTEXT_01_01.tpl#0"
+  },
+  {
+   "png": "03_오프닝자막/002_opTEXT_01_02.png",
+   "size": [
+    196,
+    45
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/TITLE_LOGO.ARC/TITLE_LOGO/timg/opTEXT_01_02.tpl#0"
+  },
+  {
+   "png": "03_오프닝자막/003_opTEXT_03_01.png",
+   "size": [
+    300,
+    38
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/TITLE_LOGO.ARC/TITLE_LOGO/timg/opTEXT_03_01.tpl#0"
+  },
+  {
+   "png": "03_오프닝자막/004_opTEXT_03_02.png",
+   "size": [
+    264,
+    45
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/TITLE_LOGO.ARC/TITLE_LOGO/timg/opTEXT_03_02.tpl#0"
+  },
+  {
+   "png": "03_오프닝자막/005_opTEXT_04_01.png",
+   "size": [
+    352,
+    45
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/TITLE_LOGO.ARC/TITLE_LOGO/timg/opTEXT_04_01.tpl#0"
+  },
+  {
+   "png": "03_오프닝자막/006_opTEXT_05_01.png",
+   "size": [
+    216,
+    52
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/TITLE_LOGO.ARC/TITLE_LOGO/timg/opTEXT_05_01.tpl#0"
+  },
+  {
+   "png": "03_오프닝자막/007_opTEXT_06_01.png",
+   "size": [
+    300,
+    38
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/TITLE_LOGO.ARC/TITLE_LOGO/timg/opTEXT_06_01.tpl#0"
+  },
+  {
+   "png": "03_오프닝자막/008_opTEXT_06_02.png",
+   "size": [
+    272,
+    45
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/TITLE_LOGO.ARC/TITLE_LOGO/timg/opTEXT_06_02.tpl#0"
+  },
+  {
+   "png": "03_오프닝자막/009_opTEXT_07_01.png",
+   "size": [
+    328,
+    38
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/TITLE_LOGO.ARC/TITLE_LOGO/timg/opTEXT_07_01.tpl#0"
+  },
+  {
+   "png": "03_오프닝자막/010_opTEXT_07_02.png",
+   "size": [
+    368,
+    41
+   ],
+   "eu_path": "LANG/ENG/LYT/MOV/TITLE_LOGO.ARC/TITLE_LOGO/timg/opTEXT_07_02.tpl#0"
+  }
+ ]
+}

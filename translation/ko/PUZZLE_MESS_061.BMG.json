@@ -1,0 +1,25 @@
+{
+ "file": "MESS/PUZZLE_MESS_061.BMG",
+ "type": "bmg",
+ "count": 7,
+ "messages": [
+  {
+   "id": 1,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "RAS를 여기에…"
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "좋아! 이제…"
+    }
+   ]
+  }
+ ]
+}

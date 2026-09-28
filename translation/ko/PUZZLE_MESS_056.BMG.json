@@ -1,0 +1,20 @@
+{
+ "file": "MESS/PUZZLE_MESS_056.BMG",
+ "type": "bmg",
+ "count": 6,
+ "messages": [
+  {
+   "id": 3,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "…어? 전원이 안 켜져."
+    },
+    {
+     "speaker": "アシュレイ",
+     "ko": "…왜지?"
+    }
+   ]
+  }
+ ]
+}

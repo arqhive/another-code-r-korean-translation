@@ -1,0 +1,16 @@
+{
+ "file": "MESS/PUZZLE_MESS_027.BMG",
+ "type": "bmg",
+ "count": 5,
+ "messages": [
+  {
+   "id": 1,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "이게 뭘까…"
+    }
+   ]
+  }
+ ]
+}

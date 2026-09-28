@@ -1,0 +1,20 @@
+{
+ "file": "MESS/PUZZLE_MESS_060.BMG",
+ "type": "bmg",
+ "count": 7,
+ "messages": [
+  {
+   "id": 1,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "「저드 도큐먼트는 이제 필요 없다."
+    },
+    {
+     "speaker": "アシュレイ",
+     "ko": "이제 액체 메모리에 관한 정보를\n손에 넣어 다오」"
+    }
+   ]
+  }
+ ]
+}

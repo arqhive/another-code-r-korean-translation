@@ -1,0 +1,48 @@
+{
+ "file": "ITEM/ICOMB.COMB",
+ "type": "strings",
+ "strings": [
+  {
+   "offset": 40,
+   "block": 36,
+   "part": 0,
+   "ko": "1밧줄을 묶은 구명튜브"
+  },
+  {
+   "offset": 110,
+   "block": 106,
+   "part": 0,
+   "ko": "1접착테이프를 감은 호스"
+  },
+  {
+   "offset": 165,
+   "block": 161,
+   "part": 0,
+   "ko": "1반창고를 감은 호스"
+  },
+  {
+   "offset": 223,
+   "block": 219,
+   "part": 0,
+   "ko": "1접착테이프를 감은 호스"
+  },
+  {
+   "offset": 278,
+   "block": 274,
+   "part": 0,
+   "ko": "2RAS"
+  },
+  {
+   "offset": 310,
+   "block": 306,
+   "part": 0,
+   "ko": "2무선 전화기"
+  },
+  {
+   "offset": 356,
+   "block": 352,
+   "part": 0,
+   "ko": "조합할 수 없다."
+  }
+ ]
+}

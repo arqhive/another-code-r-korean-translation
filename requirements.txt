@@ -1,0 +1,4 @@
+numpy>=2.0
+Pillow>=10.0
+# 마침표 검수 도구(tools/period_check.py)에만 필요
+kiwipiepy>=0.20

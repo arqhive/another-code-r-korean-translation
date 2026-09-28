@@ -1,0 +1,25 @@
+{
+ "설명": "대화창 화자 이름표(LYT/WIN.ARC <이름>.tpl) 한국어. tools/nameplate.py 가 200x40 으로 그린다. 배경색·글자색은 tools/assets/jp/04_대화창_이름표 의 같은 이름 그림에서 뽑는다.",
+ "names": {
+  "ashley": "애슐리",
+  "charlotte": "샬럿",
+  "dan": "댄",
+  "elizabeth": "엘리자베스",
+  "gina": "지나",
+  "janet": "재닛",
+  "jesika": "제시카",
+  "john": "존",
+  "john2": "그레그",
+  "lucy": "루시",
+  "matthew": "매슈",
+  "mike": "마이크",
+  "oliver": "밥",
+  "princess": "공주",
+  "rex": "렉스",
+  "richard": "리처드",
+  "ryan": "라이언",
+  "sam": "샘",
+  "sofia": "소피아",
+  "tommy": "토미"
+ }
+}

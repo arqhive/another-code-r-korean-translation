@@ -1,0 +1,29 @@
+{
+ "file": "MESS/PUZZLE_MESS_042.BMG",
+ "type": "bmg",
+ "count": 8,
+ "messages": [
+  {
+   "id": 3,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "어딘가 틈이 있을 텐데…"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "아…"
+    },
+    {
+     "speaker": "アシュレイ",
+     "ko": "조금만 더 하면 열릴 것 같은데…"
+    }
+   ]
+  }
+ ]
+}

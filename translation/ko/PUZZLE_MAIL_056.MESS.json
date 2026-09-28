@@ -1,0 +1,978 @@
+{
+ "file": "MESS/PUZZLE_MAIL_056.MESS",
+ "type": "mail",
+ "strings": [
+  {
+   "offset": 232,
+   "part": 0,
+   "record": 0,
+   "ko": "STRM_BGM_02"
+  },
+  {
+   "offset": 244,
+   "part": 1,
+   "record": 0,
+   "ko": "시간 여행"
+  },
+  {
+   "offset": 257,
+   "part": 2,
+   "record": 0,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 291,
+   "part": 0,
+   "record": 1,
+   "ko": "STRM_BGM_OP_01"
+  },
+  {
+   "offset": 306,
+   "part": 1,
+   "record": 1,
+   "ko": "사요코"
+  },
+  {
+   "offset": 316,
+   "part": 2,
+   "record": 1,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 350,
+   "part": 0,
+   "record": 2,
+   "ko": "STRM_BGM_05"
+  },
+  {
+   "offset": 362,
+   "part": 1,
+   "record": 2,
+   "ko": "언제나 그 마음"
+  },
+  {
+   "offset": 381,
+   "part": 2,
+   "record": 2,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 415,
+   "part": 0,
+   "record": 3,
+   "ko": "STRM_BGM_06"
+  },
+  {
+   "offset": 427,
+   "part": 1,
+   "record": 3,
+   "ko": "블루 모먼트"
+  },
+  {
+   "offset": 455,
+   "part": 2,
+   "record": 3,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 489,
+   "part": 0,
+   "record": 4,
+   "ko": "STRM_BGM_07"
+  },
+  {
+   "offset": 501,
+   "part": 1,
+   "record": 4,
+   "ko": "추억의 정거장"
+  },
+  {
+   "offset": 529,
+   "part": 2,
+   "record": 4,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 563,
+   "part": 0,
+   "record": 5,
+   "ko": "STRM_BGM_08"
+  },
+  {
+   "offset": 575,
+   "part": 1,
+   "record": 5,
+   "ko": "다정한 시간"
+  },
+  {
+   "offset": 591,
+   "part": 2,
+   "record": 5,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 625,
+   "part": 0,
+   "record": 6,
+   "ko": "STRM_BGM_10"
+  },
+  {
+   "offset": 637,
+   "part": 1,
+   "record": 6,
+   "ko": "나뭇잎 사이 햇살의 시"
+  },
+  {
+   "offset": 656,
+   "part": 2,
+   "record": 6,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 690,
+   "part": 0,
+   "record": 7,
+   "ko": "STRM_BGM_15"
+  },
+  {
+   "offset": 702,
+   "part": 1,
+   "record": 7,
+   "ko": "귀여운 장난"
+  },
+  {
+   "offset": 724,
+   "part": 2,
+   "record": 7,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 758,
+   "part": 0,
+   "record": 8,
+   "ko": "STRM_BGM_18"
+  },
+  {
+   "offset": 770,
+   "part": 1,
+   "record": 8,
+   "ko": "푸른 하늘을 올려다보며"
+  },
+  {
+   "offset": 792,
+   "part": 2,
+   "record": 8,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 826,
+   "part": 0,
+   "record": 9,
+   "ko": "STRM_BGM_19"
+  },
+  {
+   "offset": 838,
+   "part": 1,
+   "record": 9,
+   "ko": "호숫가에서"
+  },
+  {
+   "offset": 857,
+   "part": 2,
+   "record": 9,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 891,
+   "part": 0,
+   "record": 10,
+   "ko": "STRM_BGM_20"
+  },
+  {
+   "offset": 903,
+   "part": 1,
+   "record": 10,
+   "ko": "황혼으로 이어지는 길"
+  },
+  {
+   "offset": 925,
+   "part": 2,
+   "record": 10,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 959,
+   "part": 0,
+   "record": 11,
+   "ko": "STRM_BGM_24"
+  },
+  {
+   "offset": 971,
+   "part": 1,
+   "record": 11,
+   "ko": "추억의 샘"
+  },
+  {
+   "offset": 987,
+   "part": 2,
+   "record": 11,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 1021,
+   "part": 0,
+   "record": 12,
+   "ko": "STRM_BGM_25"
+  },
+  {
+   "offset": 1033,
+   "part": 1,
+   "record": 12,
+   "ko": "비밀스러운 후회"
+  },
+  {
+   "offset": 1058,
+   "part": 2,
+   "record": 12,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 1092,
+   "part": 0,
+   "record": 13,
+   "ko": "STRM_BGM_33"
+  },
+  {
+   "offset": 1104,
+   "part": 1,
+   "record": 13,
+   "ko": "투명한 진실"
+  },
+  {
+   "offset": 1120,
+   "part": 2,
+   "record": 13,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 1154,
+   "part": 0,
+   "record": 14,
+   "ko": "STRM_BGM_34"
+  },
+  {
+   "offset": 1166,
+   "part": 1,
+   "record": 14,
+   "ko": "다시 기약하는 약속"
+  },
+  {
+   "offset": 1182,
+   "part": 2,
+   "record": 14,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 1216,
+   "part": 0,
+   "record": 15,
+   "ko": "STRM_BGM_36"
+  },
+  {
+   "offset": 1228,
+   "part": 1,
+   "record": 15,
+   "ko": "긴 그림자"
+  },
+  {
+   "offset": 1238,
+   "part": 2,
+   "record": 15,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 1272,
+   "part": 0,
+   "record": 16,
+   "ko": "STRM_BGM_37"
+  },
+  {
+   "offset": 1284,
+   "part": 1,
+   "record": 16,
+   "ko": "부서진 빛"
+  },
+  {
+   "offset": 1297,
+   "part": 2,
+   "record": 16,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 1331,
+   "part": 0,
+   "record": 17,
+   "ko": "STRM_BGM_40"
+  },
+  {
+   "offset": 1343,
+   "part": 1,
+   "record": 17,
+   "ko": "닿지 않는 마음"
+  },
+  {
+   "offset": 1359,
+   "part": 2,
+   "record": 17,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 1393,
+   "part": 0,
+   "record": 18,
+   "ko": "STRM_BGM_41"
+  },
+  {
+   "offset": 1405,
+   "part": 1,
+   "record": 18,
+   "ko": "꿈에서 만난다면"
+  },
+  {
+   "offset": 1424,
+   "part": 2,
+   "record": 18,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 1458,
+   "part": 0,
+   "record": 19,
+   "ko": "STRM_BGM_42"
+  },
+  {
+   "offset": 1470,
+   "part": 1,
+   "record": 19,
+   "ko": "열리지 않는 문"
+  },
+  {
+   "offset": 1486,
+   "part": 2,
+   "record": 19,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 1520,
+   "part": 0,
+   "record": 20,
+   "ko": "STRM_BGM_43"
+  },
+  {
+   "offset": 1532,
+   "part": 1,
+   "record": 20,
+   "ko": "행복한 휴일"
+  },
+  {
+   "offset": 1557,
+   "part": 2,
+   "record": 20,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 1591,
+   "part": 0,
+   "record": 21,
+   "ko": "STRM_BGM_IDOU_01"
+  },
+  {
+   "offset": 1608,
+   "part": 1,
+   "record": 21,
+   "ko": "기억의 조각"
+  },
+  {
+   "offset": 1627,
+   "part": 2,
+   "record": 21,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 1661,
+   "part": 0,
+   "record": 22,
+   "ko": "STRM_BGM_TANSAKU_01"
+  },
+  {
+   "offset": 1681,
+   "part": 1,
+   "record": 22,
+   "ko": "마음을 맑게"
+  },
+  {
+   "offset": 1700,
+   "part": 2,
+   "record": 22,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 1734,
+   "part": 0,
+   "record": 23,
+   "ko": "STRM_BGM_KAIWA_01"
+  },
+  {
+   "offset": 1752,
+   "part": 1,
+   "record": 23,
+   "ko": "켈리의 자장가"
+  },
+  {
+   "offset": 1774,
+   "part": 2,
+   "record": 23,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 1808,
+   "part": 0,
+   "record": 24,
+   "ko": "STRM_BGM_TANSAKU_02"
+  },
+  {
+   "offset": 1828,
+   "part": 1,
+   "record": 24,
+   "ko": "진실의 경계"
+  },
+  {
+   "offset": 1844,
+   "part": 2,
+   "record": 24,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 1878,
+   "part": 0,
+   "record": 25,
+   "ko": "STRM_BGM_KAIWA_02"
+  },
+  {
+   "offset": 1896,
+   "part": 1,
+   "record": 25,
+   "ko": "시간을 넘어"
+  },
+  {
+   "offset": 1912,
+   "part": 2,
+   "record": 25,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 1946,
+   "part": 0,
+   "record": 26,
+   "ko": "STRM_BGM_38"
+  },
+  {
+   "offset": 1958,
+   "part": 1,
+   "record": 26,
+   "ko": "호수의 기억"
+  },
+  {
+   "offset": 1971,
+   "part": 2,
+   "record": 26,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 2005,
+   "part": 0,
+   "record": 27,
+   "ko": "STRM_BGM_HAMBURGER_SHOP"
+  },
+  {
+   "offset": 2029,
+   "part": 1,
+   "record": 27,
+   "ko": "그 시절로 돌아간다면"
+  },
+  {
+   "offset": 2054,
+   "part": 2,
+   "record": 27,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 2088,
+   "part": 0,
+   "record": 28,
+   "ko": "STRM_BGM_MUSIC_BOX"
+  },
+  {
+   "offset": 2107,
+   "part": 1,
+   "record": 28,
+   "ko": "천사의 눈뜸."
+  },
+  {
+   "offset": 2126,
+   "part": 2,
+   "record": 28,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 2160,
+   "part": 0,
+   "record": 29,
+   "ko": "STRM_BGM_MINKA_AREA"
+  },
+  {
+   "offset": 2180,
+   "part": 1,
+   "record": 29,
+   "ko": "마법의 거울"
+  },
+  {
+   "offset": 2193,
+   "part": 2,
+   "record": 29,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 2227,
+   "part": 0,
+   "record": 30,
+   "ko": "STRM_BGM_GUITAR_LESSON_NON_EFFECT"
+  },
+  {
+   "offset": 2261,
+   "part": 1,
+   "record": 30,
+   "ko": "지루함을 날려 버려."
+  },
+  {
+   "offset": 2286,
+   "part": 2,
+   "record": 30,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 2320,
+   "part": 0,
+   "record": 31,
+   "ko": "STRM_BGM_ROOM_AREA"
+  },
+  {
+   "offset": 2339,
+   "part": 1,
+   "record": 31,
+   "ko": "유리 시계"
+  },
+  {
+   "offset": 2358,
+   "part": 2,
+   "record": 31,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 2392,
+   "part": 0,
+   "record": 32,
+   "ko": "STRM_BGM_CHARLOTTE_HOUSE"
+  },
+  {
+   "offset": 2417,
+   "part": 1,
+   "record": 32,
+   "ko": "양지바른 방"
+  },
+  {
+   "offset": 2439,
+   "part": 2,
+   "record": 32,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 2473,
+   "part": 0,
+   "record": 33,
+   "ko": "STRM_BGM_TITLE"
+  },
+  {
+   "offset": 2488,
+   "part": 1,
+   "record": 33,
+   "ko": "아득한 기억"
+  },
+  {
+   "offset": 2501,
+   "part": 2,
+   "record": 33,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 2535,
+   "part": 0,
+   "record": 34,
+   "ko": "STRM_BGM_LABORATORY"
+  },
+  {
+   "offset": 2555,
+   "part": 1,
+   "record": 34,
+   "ko": "JC 밸리의 테마"
+  },
+  {
+   "offset": 2586,
+   "part": 2,
+   "record": 34,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 2620,
+   "part": 0,
+   "record": 35,
+   "ko": "STRM_BGM_BAND"
+  },
+  {
+   "offset": 2634,
+   "part": 1,
+   "record": 35,
+   "ko": "뷰티풀 드림"
+  },
+  {
+   "offset": 2668,
+   "part": 2,
+   "record": 35,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 2702,
+   "part": 0,
+   "record": 36,
+   "ko": "STRM_BGM_BAND_2"
+  },
+  {
+   "offset": 2718,
+   "part": 1,
+   "record": 36,
+   "ko": "마지막 편지"
+  },
+  {
+   "offset": 2734,
+   "part": 2,
+   "record": 36,
+   "ko": "더미 텍스트"
+  },
+  {
+   "offset": 2768,
+   "part": 0,
+   "record": 37,
+   "ko": "STRM_anotherdemo51"
+  },
+  {
+   "offset": 2787,
+   "part": 1,
+   "record": 37,
+   "ko": "어나더 코드"
+  },
+  {
+   "offset": 2809,
+   "part": 2,
+   "record": 37,
+   "ko": "전작 전작"
+  },
+  {
+   "offset": 2852,
+   "part": 0,
+   "record": 38,
+   "ko": "STRM_ashley_theme01"
+  },
+  {
+   "offset": 2872,
+   "part": 1,
+   "record": 38,
+   "ko": "흔들리는 마음"
+  },
+  {
+   "offset": 2888,
+   "part": 2,
+   "record": 38,
+   "ko": "전작 전작"
+  },
+  {
+   "offset": 2931,
+   "part": 0,
+   "record": 39,
+   "ko": "STRM_bill_last"
+  },
+  {
+   "offset": 2946,
+   "part": 1,
+   "record": 39,
+   "ko": "어둠 속으로"
+  },
+  {
+   "offset": 2959,
+   "part": 2,
+   "record": 39,
+   "ko": "전작 전작"
+  },
+  {
+   "offset": 3002,
+   "part": 0,
+   "record": 40,
+   "ko": "STRM_bill_theme"
+  },
+  {
+   "offset": 3018,
+   "part": 1,
+   "record": 40,
+   "ko": "불안한 예감"
+  },
+  {
+   "offset": 3034,
+   "part": 2,
+   "record": 40,
+   "ko": "전작 전작"
+  },
+  {
+   "offset": 3077,
+   "part": 0,
+   "record": 41,
+   "ko": "STRM_chaptar1"
+  },
+  {
+   "offset": 3091,
+   "part": 1,
+   "record": 41,
+   "ko": "아빠를 찾아서"
+  },
+  {
+   "offset": 3110,
+   "part": 2,
+   "record": 41,
+   "ko": "전작 전작"
+  },
+  {
+   "offset": 3153,
+   "part": 0,
+   "record": 42,
+   "ko": "STRM_chaptar2_3"
+  },
+  {
+   "offset": 3169,
+   "part": 1,
+   "record": 42,
+   "ko": "금빛 새와 은빛 새"
+  },
+  {
+   "offset": 3191,
+   "part": 2,
+   "record": 42,
+   "ko": "전작 전작"
+  },
+  {
+   "offset": 3234,
+   "part": 0,
+   "record": 43,
+   "ko": "STRM_chaptar4"
+  },
+  {
+   "offset": 3248,
+   "part": 1,
+   "record": 43,
+   "ko": "세피아빛 추억"
+  },
+  {
+   "offset": 3270,
+   "part": 2,
+   "record": 43,
+   "ko": "전작 전작"
+  },
+  {
+   "offset": 3313,
+   "part": 0,
+   "record": 44,
+   "ko": "STRM_chaptar5_6"
+  },
+  {
+   "offset": 3329,
+   "part": 1,
+   "record": 44,
+   "ko": "세컨드 어나더"
+  },
+  {
+   "offset": 3357,
+   "part": 2,
+   "record": 44,
+   "ko": "전작 전작"
+  },
+  {
+   "offset": 3400,
+   "part": 0,
+   "record": 45,
+   "ko": "STRM_chaptar7"
+  },
+  {
+   "offset": 3414,
+   "part": 1,
+   "record": 45,
+   "ko": "푸른 달의 기적"
+  },
+  {
+   "offset": 3433,
+   "part": 2,
+   "record": 45,
+   "ko": "전작 전작"
+  },
+  {
+   "offset": 3476,
+   "part": 0,
+   "record": 46,
+   "ko": "STRM_D_theme"
+  },
+  {
+   "offset": 3489,
+   "part": 1,
+   "record": 46,
+   "ko": "디의 테마"
+  },
+  {
+   "offset": 3511,
+   "part": 2,
+   "record": 46,
+   "ko": "전작 전작"
+  },
+  {
+   "offset": 3554,
+   "part": 0,
+   "record": 47,
+   "ko": "STRM_ending"
+  },
+  {
+   "offset": 3566,
+   "part": 1,
+   "record": 47,
+   "ko": "작은 소망"
+  },
+  {
+   "offset": 3582,
+   "part": 2,
+   "record": 47,
+   "ko": "전작 전작"
+  },
+  {
+   "offset": 3625,
+   "part": 0,
+   "record": 48,
+   "ko": "STRM_happy_birthday"
+  },
+  {
+   "offset": 3645,
+   "part": 1,
+   "record": 48,
+   "ko": "열네 살 생일"
+  },
+  {
+   "offset": 3667,
+   "part": 2,
+   "record": 48,
+   "ko": "전작 전작"
+  },
+  {
+   "offset": 3710,
+   "part": 0,
+   "record": 49,
+   "ko": "STRM_opening"
+  },
+  {
+   "offset": 3723,
+   "part": 1,
+   "record": 49,
+   "ko": "마음을 실어."
+  },
+  {
+   "offset": 3742,
+   "part": 2,
+   "record": 49,
+   "ko": "전작 전작"
+  },
+  {
+   "offset": 3785,
+   "part": 0,
+   "record": 50,
+   "ko": "STRM_richard_theme"
+  },
+  {
+   "offset": 3804,
+   "part": 1,
+   "record": 50,
+   "ko": "슬픈 망설임"
+  },
+  {
+   "offset": 3826,
+   "part": 2,
+   "record": 50,
+   "ko": "전작 전작"
+  },
+  {
+   "offset": 3869,
+   "part": 0,
+   "record": 51,
+   "ko": "STRM_talk1"
+  },
+  {
+   "offset": 3880,
+   "part": 1,
+   "record": 51,
+   "ko": "눈동자 속에서"
+  },
+  {
+   "offset": 3893,
+   "part": 2,
+   "record": 51,
+   "ko": "전작 전작"
+  },
+  {
+   "offset": 3936,
+   "part": 0,
+   "record": 52,
+   "ko": "STRM_talk2"
+  },
+  {
+   "offset": 3947,
+   "part": 1,
+   "record": 52,
+   "ko": "진실의 이면"
+  },
+  {
+   "offset": 3963,
+   "part": 2,
+   "record": 52,
+   "ko": "전작 전작"
+  },
+  {
+   "offset": 4006,
+   "part": 0,
+   "record": 53,
+   "ko": "STRM_tumugi"
+  },
+  {
+   "offset": 4018,
+   "part": 1,
+   "record": 53,
+   "ko": "마음을 엮어"
+  },
+  {
+   "offset": 4034,
+   "part": 2,
+   "record": 53,
+   "ko": "전작 전작"
+  }
+ ]
+}

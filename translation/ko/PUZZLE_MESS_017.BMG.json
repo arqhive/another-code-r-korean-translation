@@ -1,0 +1,25 @@
+{
+ "file": "MESS/PUZZLE_MESS_017.BMG",
+ "type": "bmg",
+ "count": 4,
+ "messages": [
+  {
+   "id": 1,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "…어쩌지\n좀처럼 비켜 주질 않네."
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "…앗"
+    }
+   ]
+  }
+ ]
+}

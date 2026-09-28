@@ -1,0 +1,34 @@
+{
+ "file": "MESS/PUZZLE_MESS_025.BMG",
+ "type": "bmg",
+ "count": 8,
+ "messages": [
+  {
+   "id": 1,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "호스를 빼려면\n먼저 수도꼭지를 잠가야지…"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "…으앗!"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "…이래선 안 되겠어."
+    }
+   ]
+  }
+ ]
+}

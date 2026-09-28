@@ -1,0 +1,16 @@
+# 게임 데이터·빌드 결과 (저작권 — 커밋하지 않음)
+*.iso
+*.rvz
+*.wbfs
+
+# 추출본·원문 대조본·빌드 중간 산출물
+work/
+
+# 배포 패치(용량이 큼 — 릴리즈에만 첨부)
+release/*.xdelta
+
+# 외부 실행 파일(wit·xdelta3) — README의 요구 사항 참고
+tools/bin/
+
+__pycache__/
+*.pyc

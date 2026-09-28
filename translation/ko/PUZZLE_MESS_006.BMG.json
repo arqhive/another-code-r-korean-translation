@@ -1,0 +1,25 @@
+{
+ "file": "MESS/PUZZLE_MESS_006.BMG",
+ "type": "bmg",
+ "count": 6,
+ "messages": [
+  {
+   "id": 1,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "…뚜껑이 움직여!"
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "boxes": [
+    {
+     "speaker": "アシュレイ",
+     "ko": "…누구야?!"
+    }
+   ]
+  }
+ ]
+}
