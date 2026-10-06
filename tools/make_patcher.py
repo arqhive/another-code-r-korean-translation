@@ -2,7 +2,7 @@
 ISO 통째 차분과 달리 원본 덤프 형태(정본 ISO·WBFS·WBFS 변환본·업데이트 파티션 제거본)와 상관없이 적용된다.
 패처(patcher/patch.ps1)는 사용자 PC에서 풀기 → 차분 적용 → wit 으로 다시 묶기를 한다(disc-file-patcher 스킬).
 사용: python tools/make_patcher.py [버전]        (기본 0.1)
-결과: release/AnotherCodeR_KO_v{버전}/ 과 같은 이름의 .zip"""
+결과: release/RNOP_KPatch_v{버전}/ 과 같은 이름의 .zip (릴리즈 첨부 이름 규칙 [게임 코드]_KPatch_[버전])"""
 import gzip
 import hashlib
 import os
@@ -16,7 +16,7 @@ import build
 import paths
 
 VER = sys.argv[1] if len(sys.argv) > 1 else '0.1'
-NAME = f'AnotherCodeR_KO_v{VER}'
+NAME = f'RNOP_KPatch_v{VER}'
 OUT = paths.RELEASE / NAME
 PATCHER = paths.ROOT / 'patcher'
 WIT_BIN = paths.TOOLS / 'bin' / 'wit-v3.05a-r8638-cygwin64'

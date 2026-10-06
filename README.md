@@ -35,7 +35,7 @@
 
 ### 적용 방법
 
-1. [릴리즈 페이지](../../releases/latest)에서 `AnotherCodeR_KO_v<버전>.zip`을 받아 압축을 풉니다.
+1. [릴리즈 페이지](../../releases/latest)에서 `RNOP_KPatch_v<버전>.zip`을 받아 압축을 풉니다.
 2. 원본 이미지를 `패치하기.bat` 위에 끌어다 놓습니다. 원본을 같은 폴더에 두고 더블클릭해도 됩니다.
 3. "완료"가 나오면 원본과 같은 폴더에 `Another Code R (Korean) [RNOP01].iso`(WBFS 원본이면 `.wbfs`)가 생깁니다. 원본은 바뀌지 않습니다.
 
@@ -75,7 +75,7 @@ powershell -ExecutionPolicy Bypass -File patch.ps1 "원본.iso" "결과.wbfs"
 # 한글 ISO 만들기 (work/AnotherCodeR_KO.iso, 원본 배치 유지)
 python tools/build.py
 
-# 배포용 패처 만들기 (release/AnotherCodeR_KO_v0.1/ 과 .zip)
+# 배포용 패처 만들기 (release/RNOP_KPatch_v0.1/ 과 .zip)
 python tools/make_patcher.py 0.1
 ```
 
