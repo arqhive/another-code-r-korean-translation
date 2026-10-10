@@ -3,12 +3,12 @@
 *Another Code: R — A Journey into Lost Memories* (Wii, 유럽판 `RNOP01`) 비공식 한국어 팬 패치입니다.
 대사는 일본어판(『アナザーコード：R 記憶の扉』) 원문을 기준으로 번역했고, 유럽판 디스크에 넣었습니다.
 
-**제작: arqhive** · **최신 버전: [v0.1](../../releases/tag/v0.1)**
+**제작: arqhive** · **최신 버전: [v0.2](../../releases/tag/v0.2)**
 
 - 대사 전체를 한글화했습니다(본편, 조사·상호작용 대사, 줄거리, 퍼즐).
 - 인물·아이템 설명, DAS 메일, 기억 퀴즈, 세이브·오류 메시지, 장 이름, 장소 이름을 한글화했습니다.
-- 타이틀 로고, 장소 이름 띠, 지도, 인물 소개 카드, 대화창 이름표, DAS 메뉴, 장 제목, 오프닝 날짜·장소 자막, 엔딩 이름, 리모컨 스트랩 경고 화면, 세이브 배너 등 그림 글씨를 한글화했습니다.
-- 게임 폰트 4벌에 한글 2,350자를 넣었습니다(맑은 고딕, 흰 글씨·검은 테두리).
+- 타이틀 로고, 장소 이름 띠, 지도, 인물 소개 카드, 대화창 이름표, DAS 메뉴, 장 제목, 오프닝 날짜·장소 자막, 엔딩 이름, 리모컨 스트랩 경고 화면, 세이브 배너, 퍼즐 그림 등 그림 글씨를 한글화했습니다.
+- 게임 폰트 4벌에 한글 2,350자를 넣었습니다. 대사창은 일본판의 손글씨풍 글꼴에 맞춰 둘기마요, 메뉴·설명은 나눔고딕입니다(흰 글씨·검은 테두리).
 - 본체 언어 설정과 관계없이 한국어로 나옵니다.
 - **파일 단위 패처**라서 덤프 형태(정본 ISO, WBFS, WBFS에서 변환한 ISO, 업데이트 파티션을 뺀 덤프)가 달라도 게임 파일만 같으면 적용됩니다.
 
@@ -54,7 +54,7 @@ powershell -ExecutionPolicy Bypass -File patch.ps1 "원본.iso" "결과.wbfs"
 
 ### 알려진 문제
 
-- 영상에 박혀 있는 영어(엔딩의 헌사 문구 등)는 그대로입니다. 영상을 다시 인코딩하지 않았습니다.
+- 영상에 박혀 있는 영어(오프닝의 「Sayoko...」, 엔딩의 헌사 문구 등)는 그대로입니다. 영상을 다시 인코딩하지 않았습니다.
 - 장 제목의 "Chapter 1" 같은 장 번호 글씨는 영어 그대로 두었습니다.
 - 퍼즐의 얼굴 인증 화면에서 한 줄짜리 문구가 상자 아래쪽에 걸쳐 나옵니다. 읽는 데는 문제가 없습니다.
 
@@ -65,7 +65,9 @@ powershell -ExecutionPolicy Bypass -File patch.ps1 "원본.iso" "결과.wbfs"
 - Python 3.11 이상. `pip install -r requirements.txt`로 numpy, Pillow를 설치합니다. `kiwipiepy`는 마침표 검수 도구(`tools/period_check.py`)에만 필요합니다.
 - **유럽판 ISO와 일본판 ISO 둘 다.** 패치는 유럽판에 넣지만, 빌드할 때 일본판의 레이아웃 묶음·메시지 구조·문자열 위치를 참조합니다.
   저장소 루트(또는 바로 아래 폴더)에 `Another Code - R [RNOP01].iso`, `Another Code - R [RNOJ01].iso`로 두거나 환경 변수 `ACR_EU_ISO`, `ACR_JP_ISO`로 지정합니다.
-- 맑은 고딕(`C:/Windows/Fonts/malgunbd.ttf`). 한글 폰트와 이름표를 그리는 데 씁니다.
+- 글꼴. 저장소의 [`tools/fonts`](tools/fonts)에 나눔고딕 Bold·나눔스퀘어라운드 ExtraBold(SIL OFL)가 들어 있습니다.
+  - **둘기마요 굵게(`dovemayo_bold.otf`)는 들어 있지 않으니** 따로 받아 Windows에 설치하거나 `tools/fonts`에 두세요(대사창 폰트).
+  - 맑은 고딕(`C:/Windows/Fonts/malgunbd.ttf`)은 둘기마요에 없는 기호와 대화창 이름표에 씁니다.
 - [wit](https://wit.wiimm.de/)(Wiimms ISO Tools). 추출과 원본 배치 유지 ISO 조립에 씁니다. `tools/bin/wit-v3.05a-r8638-cygwin64/`에 두거나 PATH, 환경 변수 `WIT`로 지정합니다.
 - xdelta3. 배포용 패처를 만들 때만 필요하며, `tools/bin/xdelta3.exe`나 PATH, 환경 변수 `XDELTA3`로 둡니다.
 
@@ -75,13 +77,13 @@ powershell -ExecutionPolicy Bypass -File patch.ps1 "원본.iso" "결과.wbfs"
 # 한글 ISO 만들기 (work/AnotherCodeR_KO.iso, 원본 배치 유지)
 python tools/build.py
 
-# 배포용 패처 만들기 (release/RNOP_KPatch_v0.1/ 과 .zip)
-python tools/make_patcher.py 0.1
+# 배포용 패처 만들기 (release/RNOP_KPatch_v0.2/ 과 .zip)
+python tools/make_patcher.py 0.2
 ```
 
 처음 실행하면 두 ISO를 `work/eu`, `work/jp`에 추출합니다. 폰트 4벌, 대사 파일 83개, 이미지(레이아웃 묶음 약 200개), 대화창 이름표, 기타 텍스트 11개, `main.dol` 패치를 `work/build`에 만듭니다.
 - `build.py`는 원본 배치를 유지한 ISO를 조립하고, 결과 ISO의 파일 7,054개를 모두 빌드 결과·원본과 비교해 검증합니다.
-- `make_patcher.py`는 바뀐 파일 303개마다 유럽판 원본과의 xdelta 차분을 만들고, [`patcher/`](patcher)의 `패치하기.bat`·`patch.ps1`, wit, xdelta3, [`release/README_한국어.txt`](release/README_한국어.txt)와 함께 zip으로 묶습니다.
+- `make_patcher.py`는 바뀐 파일마다 유럽판 원본과의 xdelta 차분을 만들고, [`patcher/`](patcher)의 `패치하기.bat`·`patch.ps1`, wit, xdelta3, [`release/README_한국어.txt`](release/README_한국어.txt)와 함께 zip으로 묶습니다.
   배포 전에는 zip을 푼 사본으로 원본 ISO와 WBFS에 적용해 보고, 결과를 추출해 모든 파일을 비교합니다.
 Windows Git Bash에서는 `PYTHONIOENCODING=utf-8`을 붙이세요.
 
@@ -93,7 +95,10 @@ Windows Git Bash에서는 `PYTHONIOENCODING=utf-8`을 붙이세요.
 - 원문 대조: `python tools/export_text.py`를 실행하면 일본어 원문·루비·번역을 나란히 담은 대조본이 `work/text_full/`에 만들어집니다. 대조본의 `ko`를 고친 뒤 `python tools/ko_import.py`로 되돌려 넣을 수 있습니다.
 - 마침표 검수: `python tools/period_check.py`가 종결어미로 끝났는데 마침표가 없는 곳을 `work/period_candidates.csv`로 뽑습니다.
 - 표기·말투 원칙은 [`translation/GLOSSARY.md`](translation/GLOSSARY.md)를 참고하세요.
-- 그림 글씨: [`tools/assets/`](tools/assets)의 PNG를 원본과 같은 크기로 고친 뒤 빌드합니다. 대화창 이름표는 [`tools/data/nameplates.json`](tools/data/nameplates.json)의 이름으로 도구가 직접 그립니다.
+- 그림 글씨: [`tools/assets/`](tools/assets)의 PNG를 원본과 같은 크기로 고친 뒤 빌드합니다. 대화창 이름표는 [`tools/data/nameplates.json`](tools/data/nameplates.json)의 이름으로 도구가 직접 그립니다. 타이틀 「버튼을 눌러 주세요」는 `python tools/title_text.py`가 그립니다.
+- GPT로 그림 다시 그리기:
+  1. `python tools/gpt_prepare.py`를 실행하면 `work/GPT/`에 원본·현재 한글판·요청서(프롬프트와 번호별 표)가 만들어집니다. 현재 문구는 Windows 한국어 OCR(`tools/ocr_ko.ps1`)로 읽은 초안입니다.
+  2. GPT 결과를 `work/GPT/결과/`에 「저장할 이름」으로 넣고 `python tools/gpt_import.py [번호…]`를 실행합니다. 게임 크기에 맞춰 에셋에 넣고 `work/GPT/비교/`에 비교 시트를 만듭니다.
 
 `translation/ko/*.json`에는 **번역문과 위치 키만** 들어 있습니다. 일본어 원문은 게임 데이터라 넣지 않았습니다.
 
@@ -104,6 +109,7 @@ tools/             빌드·원문 대조 도구 (paths.py가 기준 경로를 �
   assets/jp/       일본판 그림에 대응하는 한글화 이미지(분류별)와 대응 목록
   assets/eu_only/  유럽판에만 있는 그림(장 제목, 엔딩 이름, 오프닝 자막 등)의 한글화 이미지
   data/            대화창 이름표 이름
+  fonts/           나눔고딕·나눔스퀘어라운드(OFL). 둘기마요는 git 제외
   bin/             (git 제외) wit, xdelta3
 patcher/           사용자용 파일 단위 패처(패치하기.bat, patch.ps1)
 release/           패처 설명서(README_한국어.txt), 패처 폴더·zip은 git 제외
@@ -127,6 +133,7 @@ work/              (git 제외) 추출본·빌드 결과·원문 대조본
 ## 크레딧·라이선스
 
 - 이 저장소의 도구 코드, 한국어 번역문, 문서: [MIT License](LICENSE) (© 2026 arqhive).
+- 글꼴: 나눔고딕·나눔스퀘어라운드(NAVER, [SIL Open Font License 1.1](tools/fonts/OFL-Nanum.txt)), 둘기마요(대사창, 저장소에는 포함하지 않음).
 - `tools/inplace.py`, `tools/wiidisc.py`는 같은 제작자의 「돌격!! 패미컴 워즈 VS」·「죄와 벌 우주의 후계자」 한글 패치 도구를, `tools/gxtex.py`는 「디재스터 데이 오브 크라이시스」 한글 패치 도구를 바탕으로 했습니다.
 
 ## 면책
