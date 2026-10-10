@@ -150,7 +150,7 @@ def add_new(it):
     png = it['asset'].split('/', 1)[1]
     idx = [e for e in idx if e['png'] != png]
     idx.append({'png': png, 'size': it['size'], 'format': gxtex.NAME.get(it['fmt'], str(it['fmt'])), 'jp_paths': it['keys']})
-    json.dump(idx, open(p, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    json.dump(idx, open(p, 'w', encoding='utf-8', newline='\n'), ensure_ascii=False, indent=1)
 
 
 if __name__ == '__main__':
