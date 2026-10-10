@@ -14,5 +14,8 @@ release/RNOP_KPatch_v*/
 # 외부 실행 파일(wit·xdelta3) — README의 요구 사항 참고
 tools/bin/
 
+# 재배포 조건을 확인하지 못한 글꼴(둘기마요) — README의 요구 사항 참고
+tools/fonts/dovemayo*
+
 __pycache__/
 *.pyc
