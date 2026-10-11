@@ -8,6 +8,7 @@ import subprocess
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import banner
 import font_ko
 import inplace
 import insert_bmg
@@ -56,6 +57,7 @@ def build_files():
     print('[3] 이미지'); print('   ', dict(insert_tex.main())); print('    유럽판 전용', insert_tex.eu_only())
     print('    일본판 그림 사용(TAS→RAS)', dict(insert_tex.jp_image_use()))
     print('[4] 대화창 이름표'); print('    ', nameplate.main())
+    print('    채널 배너', banner.main())
     print('[5] 기타 텍스트(.MESS 등)'); insert_mess.main()
     print('[6] main.dol'); print('   ', patch_dol.main())
 

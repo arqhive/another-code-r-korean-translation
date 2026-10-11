@@ -122,6 +122,7 @@ def main():
     for e in idx:
         nm = stem(e['png']); cat = e['png'].split('/')[0]
         if RUBY.search(nm) or (nm.endswith('ap') and nm[:-2] in by): continue
+        if cat == '09_퍼즐': continue   # N 번호(퍼즐 미번역 그림)가 반영되며 생긴 에셋 — 아래 N 에서 다룸
         t = texread.info('jp', e['jp_paths'][0])
         fmt = t[2] if t else None
         kind = 'tool' if cat.startswith('04_') else ('mask' if fmt in GRAY else 'color')
@@ -164,6 +165,21 @@ def main():
               'asset': f'jp/09_퍼즐/{nid}_{os.path.basename(keys[0]).split(".")[0]}.png', 'size': [t[0], t[1]], 'fmt': t[2],
               'keys': allk, 'bg': bg_kind(orig, t[2]), 'ko': ko, 'ja': ja, 'new': True}
         save_pair(it, orig, None); items.append(it)
+    # B: Wii 메뉴 디스크 채널 배너(opening.bnr). 원본은 일본판(같은 구성의 일본어 로고), 참고는 게임 안 한글 타이틀 로고
+    import bnrpack
+    jbn = {os.path.basename(p): im for _, p, im, f in bnrpack.images(open(paths.JP / 'files/opening.bnr', 'rb').read())}
+    ref_logo = Image.open(JPA / '06_타이틀_시스템/009_TITLE_logo03.png').convert('RGBA')
+    ref = Image.new('RGBA', ref_logo.size, (0, 0, 0, 255)); ref.alpha_composite(ref_logo)
+    for bid, name, tpl, fmt, note in (
+            ('B01', 'Banner_logo03', 'Banner_logo03.tpl', 1, 'Wii 메뉴 채널 배너 로고. 기본(232×59)과 언어별 5장(464×117)에 모두 들어감'),
+            ('B02', 'Icon_logo02', 'Icon_logo02.tpl', 0, 'Wii 메뉴 채널 아이콘 로고(124×40, 아주 작음). 기본과 언어별 5장에 모두 들어감')):
+        orig = jbn[tpl]
+        it = {'id': bid, 'name': name, 'group': '10_채널배너', 'kind': 'mask', 'asset': f'banner/{bid}_{name}.png',
+              'size': list(orig.size), 'fmt': fmt, 'keys': [f'files/opening.bnr {name}*'], 'bg': '검정 바탕 흰 글씨',
+              'note': note, 'new': False}
+        save_pair(it, orig, None)
+        it['ref'] = f'참고/{bid}_{name}_게임속한글타이틀로고.png'; ref.save(GPT / it['ref'])
+        items.append(it)
     tas = [{'id': f'T{i + 1:02d}', 'key': k} for i, k in enumerate(TAS)]
     gpt_request.write(items, tas, GPT / '요청서.md')   # 현재 문구 초안(ko_hint)도 채운다
     json.dump({'items': items, 'tas': tas}, open(GPT / '목록.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
