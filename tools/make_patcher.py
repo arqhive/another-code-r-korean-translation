@@ -69,7 +69,7 @@ def main():
             n_gz += 1
         (tmp / 'a').write_bytes(a); (tmp / 'b').write_bytes(b)
         patch = f'{i:03d}.xdelta'
-        subprocess.run([paths.xdelta3(), '-e', '-f', '-9', '-S', 'djw', '-s', str(tmp / 'a'), str(tmp / 'b'),
+        subprocess.run([paths.xdelta3(), '-e', '-f', '-A=', '-9', '-S', 'djw', '-s', str(tmp / 'a'), str(tmp / 'b'),
                         str(OUT / 'data' / patch)], check=True)
         # 모드, 차분 파일, 경로, 원본 MD5(디스크 속 파일 그대로), 결과 MD5(gz 는 푼 내용)
         lines.append('\t'.join((mode, patch, rel, md5(old.read_bytes()), md5(b))))
