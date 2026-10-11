@@ -16,7 +16,7 @@ import paths
 
 SRC = paths.EU / 'files/REVOLUTION/LANG/ENG/MESS'
 DST = paths.BUILD / 'files/REVOLUTION/LANG/ENG/MESS'
-# 글꼴(10/11 사용자 결정): 일본판 FONT_A 는 둥근 손글씨풍 → 둘기마요(굵게), FONT_B 는 둥근 고딕 → 나눔고딕 Bold.
+# 글꼴(10/11 사용자 결정): 일본판 FONT_A 는 둥근 손글씨풍 → 둘기마요(굵게), FONT_B 는 둥근 고딕 → G마켓 산스 Bold(처음엔 나눔고딕).
 # 저장소 tools/fonts 에 있으면 그것, 없으면 사용자 글꼴 폴더. 글꼴에 없는 기호는 맑은 고딕 Bold 로 채운다.
 FONT_DIR = paths.TOOLS / 'fonts'
 USER_FONTS = os.path.join(os.environ.get('LOCALAPPDATA', ''), 'Microsoft/Windows/Fonts')
@@ -40,8 +40,9 @@ SPEC = {
     #   단 둘기마요는 손글씨라 글자 높이 범위가 커서 칸(23×27)에 여백까지 들어가는 최대가 20(21=27행·22=28행은 잘림)
     'FONT_A.BRFNT': ('dovemayo_bold.otf', 20, 1, -3, 18),
     'FONT_A_21.BRFNT': ('dovemayo_bold.otf', 20, 1, -3, 17),   # 쓰이는 곳 미확인 — 그대로
-    'FONT_B.BRFNT': ('NanumGothic-Bold.ttf', 17, 1, -1, 17),
-    'FONT_B_16.BRFNT': ('NanumGothic-Bold.ttf', 14, 1, -1, 15),   # 15 는 「겠·따」 등 80자가 칸(18폭)보다 넓음
+    # FONT_B 계열은 G마켓 산스 Bold(10/11 사용자 요청, 나눔고딕에서 바꿈). 글자가 넓어 18은 400여 자가 칸(21폭) 끝에 닿아 17
+    'FONT_B.BRFNT': ('GmarketSansBold.otf', 17, 1, -1, 17),
+    'FONT_B_16.BRFNT': ('GmarketSansBold.otf', 14, 1, -1, 15),
 }
 # 둘기마요의 낫표는 칸 위쪽에 붙어 옆 글자와 겹쳐 보여서(『기억 → 「키억」처럼) 맑은 고딕으로 그린다(10/11 비교)
 USE_FALLBACK = {'dovemayo_bold.otf': set('「」『』'), 'dovemayo.otf': set('「」『』')}
