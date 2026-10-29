@@ -3,7 +3,7 @@
 *Another Code: R — A Journey into Lost Memories* (Wii, 유럽판 `RNOP01`) 비공식 한국어 팬 패치입니다.
 대사는 일본어판(『アナザーコード：R 記憶の扉』) 원문을 기준으로 번역했고, 유럽판 디스크에 넣었습니다.
 
-**제작: arqhive** · **최신 버전: [v0.5](../../releases/tag/v0.5)**
+**제작: arqhive** · **최신 버전: [v0.6](../../releases/tag/v0.6)**
 
 - 대사 전체를 한글화했습니다(본편, 조사·상호작용 대사, 줄거리, 퍼즐).
 - 인물·아이템 설명, DAS 메일, 기억 퀴즈, 세이브·오류 메시지, 장 이름, 장소 이름을 한글화했습니다.
@@ -77,8 +77,8 @@ powershell -ExecutionPolicy Bypass -File patch.ps1 "원본.iso" "결과.wbfs"
 # 한글 ISO 만들기 (work/AnotherCodeR_KO.iso, 원본 배치 유지)
 python tools/build.py
 
-# 배포용 패처 만들기 (release/RNOP_KPatch_v0.5/ 과 .zip)
-python tools/make_patcher.py 0.5
+# 배포용 패처 만들기 (release/RNOP_KPatch_v0.6/ 과 .zip)
+python tools/make_patcher.py 0.6
 ```
 
 처음 실행하면 두 ISO를 `work/eu`, `work/jp`에 추출합니다. 폰트 4벌, 대사 파일 83개, 이미지(레이아웃 묶음 약 200개), 대화창 이름표, 기타 텍스트 11개, `main.dol` 패치를 `work/build`에 만듭니다.
