@@ -102,8 +102,24 @@ def render(ch, f, size, drop, adv=-3, fixed=None, path=FALLBACK):
     return la, (left, min(bb[2] + 1, f.cw), fixed if fixed and is_hangul(ch) else vis + adv)
 
 
+def squeeze(ch, f, size, drop, adv, path):
+    """칸보다 넓은 글자를 원래 크기로 그린 뒤 가로만 칸에 맞게 줄인다(높이·기준선은 그대로)"""
+    font = ImageFont.truetype(path if has_glyph(path, ch) else FALLBACK, size)
+    big = Image.new('RGBA', (f.cw * 3, f.ch), (0, 0, 0, 0))
+    ImageDraw.Draw(big).text((f.cw, f.base + drop), ch, font=font, fill=(255, 255, 255, 255),
+                             anchor='ls', stroke_width=1, stroke_fill=(0, 0, 0, 255))
+    bb = big.split()[3].getbbox()
+    ink = big.crop((bb[0], 0, bb[2], f.ch))
+    tw = min(ink.width, f.cw - 2)
+    ink = ink.resize((tw, f.ch), Image.LANCZOS)
+    im = Image.new('RGBA', (f.cw, f.ch), (0, 0, 0, 0)); im.alpha_composite(ink, (1, 0))
+    r, g, b, a = im.split()
+    if not hasattr(f, 'a_left'): f.a_left = f.widths()[f.charmap()[ord('A')]][0]
+    return Image.merge('LA', (r, a)), (f.a_left, tw + 1, tw + adv)
+
+
 CLIPPED = []
-# 글꼴 → (아래 끝이 기준선 + 이 값 이하인 한글이면, 이만큼 내림). 사용자 지적 10/11 「요가 떠 보임」(나눔고딕)
+# 글꼴 →(아래 끝이 기준선 + 이 값 이하인 한글이면, 이만큼 내림). 사용자 지적 10/11 「요가 떠 보임」(나눔고딕)
 OPTICAL = {'NanumGothic-Bold.ttf': (1, 1)}
 
 
@@ -143,10 +159,11 @@ def add(name, chars):
     for ch in redraw:
         g = cm[ord(ch)]; s, r = divmod(g, f.per_sheet); cy, cx = divmod(r, f.cols)
         if s not in decoded: decoded[s] = brfnt.ia4_decode(f.sheets[s], f.sw, f.sh)
-        for sz in range(size, size - 4, -1):   # 넓은 글자(W 등)가 칸 끝에 닿으면 조금 작게
-            n0 = len(CLIPPED); la, w = render(ch, f, sz, drop, adv, fixed, path)
-            if len(CLIPPED) == n0: break
+        sz = size
+        n0 = len(CLIPPED); la, w = render(ch, f, sz, drop, adv, fixed, path)
+        if len(CLIPPED) > n0:   # 넓은 글자(W 등): 크기를 줄이면 높이가 낮아져 소문자처럼 보여서(10/30 「Wii」 제보) 가로만 좁힌다
             del CLIPPED[n0:]
+            la, w = squeeze(ch, f, sz, drop, adv, path)
         # 「보이는 폭 + adv」는 I·1·l 같은 얇은 글자에서 0에 가까워져 다음 글자에 덮인다(10/30 비교) → 글꼴 본래 간격 이상으로
         nat = round(ImageFont.truetype(path if has_glyph(path, ch) else FALLBACK, sz).getlength(ch))
         w = (w[0], w[1], max(w[2], nat - 2))
