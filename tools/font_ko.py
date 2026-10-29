@@ -97,7 +97,8 @@ def render(ch, f, size, drop, adv=-3, fixed=None, path=FALLBACK):
         return la, (0, 0, size - 2)
     if bb[2] >= f.cw: CLIPPED.append(ch)
     vis = bb[2] - bb[0]
-    left = f.widths()[f.charmap()[ord('A')]][0] - (shift - 1)  # 원본 A 의 left 를 따르되, 안쪽으로 민 만큼 되돌림
+    if not hasattr(f, 'a_left'): f.a_left = f.widths()[f.charmap()[ord('A')]][0]   # A 를 다시 그리기 전 원본 값
+    left = f.a_left - (shift - 1)  # 원본 A 의 left 를 따르되, 안쪽으로 민 만큼 되돌림
     return la, (left, min(bb[2] + 1, f.cw), fixed if fixed and is_hangul(ch) else vis + adv)
 
 
@@ -135,6 +136,27 @@ def add(name, chars):
         s, r = divmod(k, f.per_sheet); cy, cx = divmod(r, f.cols)
         sheets[s].paste(la, (cx * (f.cw + 1), cy * (f.ch + 1)))
         widths.append(w)
+    # 원본에 있던 영문·숫자·기호(REDRAW)는 칸 번호를 그대로 두고 그 칸에 새 글꼴로 덮어 그린다.
+    # (0x20~0x7E·0xA0~0xFF 는 칸 번호가 이어지는 direct CMAP 이라 글자 하나만 새 칸으로 돌릴 수 없음)
+    redraw = [c for c in REDRAW if ord(c) in cm]
+    decoded = {}
+    for ch in redraw:
+        g = cm[ord(ch)]; s, r = divmod(g, f.per_sheet); cy, cx = divmod(r, f.cols)
+        if s not in decoded: decoded[s] = brfnt.ia4_decode(f.sheets[s], f.sw, f.sh)
+        for sz in range(size, size - 4, -1):   # 넓은 글자(W 등)가 칸 끝에 닿으면 조금 작게
+            n0 = len(CLIPPED); la, w = render(ch, f, sz, drop, adv, fixed, path)
+            if len(CLIPPED) == n0: break
+            del CLIPPED[n0:]
+        # 「보이는 폭 + adv」는 I·1·l 같은 얇은 글자에서 0에 가까워져 다음 글자에 덮인다(10/30 비교) → 글꼴 본래 간격 이상으로
+        nat = round(ImageFont.truetype(path if has_glyph(path, ch) else FALLBACK, sz).getlength(ch))
+        w = (w[0], w[1], max(w[2], nat - 2))
+        x0, y0 = cx * (f.cw + 1), cy * (f.ch + 1)
+        # 칸 오른쪽·아래 1px 틈까지 지운다(원본 「[」「]」 등은 틈까지 그려져 있어 새 글자 밑에 선으로 남았음, 10/30 제보)
+        decoded[s].paste(Image.new('LA', (f.cw + 1, f.ch + 1), (0, 0)), (x0, y0))
+        decoded[s].paste(la, (x0, y0))
+        for sec in f.cwdh:
+            if sec[0] <= g < sec[0] + len(sec[1]): sec[1][g - sec[0]] = w
+    f.sheets = [brfnt.ia4_encode(decoded[i]) if i in decoded else sh for i, sh in enumerate(f.sheets)]
     f.sheets = list(f.sheets) + [brfnt.ia4_encode(s) for s in sheets]
     a, lst = f.cwdh[-1]
     lst = list(lst) + [(0, 0, 0)] * (start - (a + len(lst))) + widths
@@ -163,6 +185,8 @@ def add(name, chars):
 
 
 EXTRA = '「」『』－＊　♪＋※○＜＞ㄱ⇔'  # 번역문에 쓰였지만 영어 폰트에 없는 기호
+# 원본 영어 글자를 한글과 같은 글꼴로 다시 그릴 글자(10/30 사용자 요청). 공백은 원래 폭 그대로 둔다(사용자 결정).
+REDRAW = ''.join(chr(c) for c in range(0x21, 0x7F)) + '…·×'
 
 
 def main(charset=None):
