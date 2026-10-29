@@ -61,9 +61,42 @@ def main():
     room = EU_MAP_END - EU_MAP
     assert len(blob) <= room, ('장소 이름 공간 부족', len(blob), room)
     ed[EU_MAP:EU_MAP_END] = blob + b'\0' * (room - len(blob))
+    # 3) dol 안 그림 묶음 INIT_DAT(저장 확인·오류 창): 「예/아니요」 버튼 그림을 기본·언어별 6벌 모두 한글로
+    n_img = init_dat_images(ed)
     out = paths.BUILD / 'sys/main.dol'; out.parent.mkdir(parents=True, exist_ok=True)
     open(out, 'wb').write(bytes(ed))
-    return {'GPMESS 한국어': (cnt, len(kb)), '장소 이름': (len(names), len(lst)), '언어 분기 패치': len(LANG_ADDI)}
+    return {'GPMESS 한국어': (cnt, len(kb)), '장소 이름': (len(names), len(lst)), '언어 분기 패치': len(LANG_ADDI),
+            'INIT_DAT 그림': n_img}
+
+
+INIT_DAT = 0x2fb0e0   # 유럽판 dol 파일 위치(U8, 이름 INIT_DAT)
+INIT_IMG = {'ICON_DASyesTEXT': '05_DAS_메뉴/058_ICON_DASyesTEXT.png',   # 일본판 MENU.ARC 와 같은 그림·크기(68×24)
+            'ICON_DASnoTEXT': '05_DAS_메뉴/057_ICON_DASnoTEXT.png'}
+INIT_UP = 2
+
+
+def init_dat_images(ed):
+    """INIT_DAT 안 TPL 자료를 같은 크기·형식으로 제자리 덮어쓴다(dol 크기 불변). 「OK」는 일본판도 영어라 그대로."""
+    from PIL import Image
+    import gxenc
+    import gxtex
+    import u8
+    fs = u8.U8(bytes(ed[INIT_DAT:])).files(); n = 0; cur = INIT_DAT
+    for k, v in fs.items():   # 자료는 노드 순서대로 놓여 있으므로 앞에서부터 차례로 찾는다(같은 그림이 두 벌일 수 있음)
+        p = ed.find(v, cur)
+        if p >= 0: cur = p + len(v)
+        stem = k.split('/')[-1][:-4]
+        key = next((b for b in INIT_IMG if stem == b or stem.startswith(b + '_')), None)
+        if key is None: continue
+        pos = p; assert pos > 0, k
+        (i, w, h, f, off, nb, pal), = list(gxtex.tpl_images(v))
+        src = Image.open(paths.ASSETS / 'jp' / INIT_IMG[key]).convert('RGBA')
+        assert src.size == (w, h), (k, src.size, w, h)
+        # 한글 그림은 일본판 기준(글자 세로 중심 12)인데 이 창의 영어 그림은 10.5 → 버튼 안에서 처져 보여(10/30 제보) 2px 올린다
+        img = Image.new('RGBA', src.size, (0, 0, 0, 0)); img.paste(src, (0, -INIT_UP))
+        data = gxenc.encode(img, f); assert len(data) == nb, (k, len(data), nb)
+        ed[pos + off:pos + off + nb] = data; n += 1
+    return n
 
 
 if __name__ == '__main__':
