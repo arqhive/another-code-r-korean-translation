@@ -121,6 +121,24 @@ def build_msg(eu_msg, jp_msg, ko_boxes, stats):
     return ''.join(t for b in base for t in b)
 
 
+# 장 요약(DAS 줄거리): 유럽판은 영어 문단 사이에 빈 줄을 두는데, 한국어 줄을 유럽판 글 줄 자리에 채우면
+# 그 빈 줄이 문장 중간에 끼어든다(10/30 사용자 제보). 항목 안 빈 줄은 없애고, 항목 끝의 큰 공백(다음 항목과의 간격)은
+# 빈 줄 GAP 개로 일정하게 둔다(유럽판 끝 빈 줄이 없는 항목=장의 마지막 항목은 그대로). 줄바꿈은 번역문(의미 단위) 그대로.
+# (지금까지 보이던 큰 공백은 한국어 줄이 유럽판보다 적어 남은 빈 자리라 항목마다 크기가 달랐음)
+PARA_FILES = {'HISTORY.BMG'}
+GAP = 4
+
+
+def drop_inner_blanks(msg, eu_msg):
+    blank = lambda l: not l.strip()
+    lines = msg.split('\n')
+    while lines and blank(lines[-1]): lines.pop()
+    lines = [l for l in lines if not blank(l)]
+    if not lines: return msg
+    has_tail = len(eu_msg.split('\n')) > 1 and blank(eu_msg.split('\n')[-2])
+    return '\n'.join(lines + ([' '] * GAP + [''] if has_tail else ['']))
+
+
 def main(only=None):
     stats = Counter(); OUT.mkdir(parents=True, exist_ok=True)
     for fn in sorted(os.listdir(paths.KO)):
@@ -134,6 +152,8 @@ def main(only=None):
         msgs = list(eb.msgs)
         for m in j['messages']:
             msgs[m['id']] = build_msg(eb.msgs[m['id']], jb.msgs[m['id']], m['boxes'], stats)
+            if name in PARA_FILES:
+                msgs[m['id']] = drop_inner_blanks(msgs[m['id']], eb.msgs[m['id']])
         out = eb.build(msgs)
         assert bmg.BMG(out).msgs == msgs
         open(OUT / name, 'wb').write(out)
