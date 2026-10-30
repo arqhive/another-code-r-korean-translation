@@ -71,3 +71,19 @@ def draw(text, wt=400, fix=None):
     rgb = np.where(near[..., None], col, np.array(BG, float))
     img = Image.fromarray(np.dstack([rgb.round().clip(0, 255), np.full((H, W), 255)]).astype(np.uint8), 'RGBA')
     return img, Image.merge('RGBA', [cm, cm, cm, Image.new('L', cm.size, 255)])
+
+
+def draw_outlined(text, wt=400, edge=0.55):
+    """일본판처럼 글자 둘레 1px 검은 테두리: 투명도는 글자를 1px 부풀린 모양(테두리 칸 edge 배), 색은 글자 커버리지만큼만
+    밝고 나머지는 검정 → 테두리 칸은 검게 보인다(테두리 없으면 밝은 배경에서 글자가 평평하게 묻힘, 10/31 사용자 지적)"""
+    a = coverage(text, wt)
+    cm = Image.fromarray((a * 255).round().astype(np.uint8))
+    # 테두리는 상하좌우 1px(대각선 빼고)로 얇게, 진하기 edge(10/31 「테두리 얇게」)
+    P = np.pad(a, 1)
+    ring = np.maximum.reduce([P[:-2, 1:-1], P[2:, 1:-1], P[1:-1, :-2], P[1:-1, 2:]])
+    ap = np.maximum(a, ring * edge)
+    g = np.interp(np.arange(H), YK, GK)[:, None]
+    col = np.stack([g, g, g + 1], -1) * a[..., None]
+    img = Image.fromarray(np.dstack([col.round().clip(0, 255), np.full((H, W), 255)]).astype(np.uint8), 'RGBA')
+    m = Image.fromarray((ap * 255).round().astype(np.uint8))
+    return img, Image.merge('RGBA', [m, m, m, Image.new('L', m.size, 255)])
