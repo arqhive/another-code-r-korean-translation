@@ -20,3 +20,6 @@ tools/fonts/GmarketSans*
 
 __pycache__/
 *.pyc
+
+# 한글화 그림(원본 게임 그림을 고친 것 — 커밋하지 않음, 로컬에만 둠)
+tools/assets/**/*.png

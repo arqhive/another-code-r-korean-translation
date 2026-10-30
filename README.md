@@ -95,7 +95,7 @@ Windows Git Bash에서는 `PYTHONIOENCODING=utf-8`을 붙이세요.
 - 원문 대조: `python tools/export_text.py`를 실행하면 일본어 원문·루비·번역을 나란히 담은 대조본이 `work/text_full/`에 만들어집니다. 대조본의 `ko`를 고친 뒤 `python tools/ko_import.py`로 되돌려 넣을 수 있습니다.
 - 마침표 검수: `python tools/period_check.py`가 종결어미로 끝났는데 마침표가 없는 곳을 `work/period_candidates.csv`로 뽑습니다.
 - 표기·말투 원칙은 [`translation/GLOSSARY.md`](translation/GLOSSARY.md)를 참고하세요.
-- 그림 글씨: [`tools/assets/`](tools/assets)의 PNG를 원본과 같은 크기로 고친 뒤 빌드합니다. 대화창 이름표는 [`tools/data/nameplates.json`](tools/data/nameplates.json)의 이름으로 도구가 직접 그립니다. 타이틀 「버튼을 눌러 주세요」는 `python tools/title_text.py`가 그립니다. Wii 메뉴 채널 배너(`files/opening.bnr`)는 `tools/banner.py`가 채널 이름과 [`tools/assets/banner`](tools/assets/banner)의 로고로 만듭니다.
+- 그림 글씨: `tools/assets/`의 PNG를 원본과 같은 크기로 고친 뒤 빌드합니다. 한글화 그림 PNG는 원본 게임 그림을 고친 것이라 저장소에 넣지 않습니다(대응 목록 JSON만 포함). 대화창 이름표는 [`tools/data/nameplates.json`](tools/data/nameplates.json)의 이름으로 도구가 직접 그립니다. 타이틀 「버튼을 눌러 주세요」는 `python tools/title_text.py`가 그립니다. Wii 메뉴 채널 배너(`files/opening.bnr`)는 `tools/banner.py`가 채널 이름과 `tools/assets/banner`의 로고로 만듭니다.
 - GPT로 그림 다시 그리기:
   1. `python tools/gpt_prepare.py`를 실행하면 `work/GPT/`에 원본·현재 한글판·요청서(프롬프트와 번호별 표)가 만들어집니다. 현재 문구는 Windows 한국어 OCR(`tools/ocr_ko.ps1`)로 읽은 초안입니다.
   2. GPT 결과를 `work/GPT/결과/`에 「저장할 이름」으로 넣고 `python tools/gpt_import.py [번호…]`를 실행합니다. 게임 크기에 맞춰 에셋에 넣고 `work/GPT/비교/`에 비교 시트를 만듭니다.
@@ -106,8 +106,8 @@ Windows Git Bash에서는 `PYTHONIOENCODING=utf-8`을 붙이세요.
 
 ```
 tools/             빌드·원문 대조 도구 (paths.py가 기준 경로를 잡음)
-  assets/jp/       일본판 그림에 대응하는 한글화 이미지(분류별)와 대응 목록
-  assets/eu_only/  유럽판에만 있는 그림(장 제목, 엔딩 이름, 오프닝 자막 등)의 한글화 이미지
+  assets/jp/       일본판 그림에 대응하는 한글화 이미지(분류별, PNG는 git 제외)와 대응 목록
+  assets/eu_only/  유럽판에만 있는 그림(장 제목, 엔딩 이름, 오프닝 자막 등)의 한글화 이미지(PNG는 git 제외)
   data/            대화창 이름표 이름
   fonts/           나눔스퀘어라운드(OFL). 둘기마요·G마켓 산스는 git 제외
   bin/             (git 제외) wit, xdelta3
