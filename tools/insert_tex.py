@@ -136,20 +136,23 @@ def merge_eu_only(tgt, a, st):
 
 # 일본판 그림을 그대로 쓸 곳: 유럽판 영어 그림은 기계 이름이 TAS 인데 대사는 일본판 기준 RAS(10/10 전수 조사).
 # 일본판 같은 자리 그림이 영어 RAS 판이라 그걸 유럽판 형식으로 다시 넣는다.
+# 10/30 사용자 결정: 영상에도 TRUE ANOTHER SYSTEM 이 박혀 있어 기계 이름을 TAS 로 통일 → 쓰지 않음(USE_JP_IMAGE=False).
+USE_JP_IMAGE = False
 JP_IMAGE = [
     'ITEM/061.brres#RAS3', 'ITEM/109.brres#RAS_plus', 'MAP/E_R110_N.acrarc/E_R110_N.BRTEX#RAS_plusa',
     'LYT/005/Interrupt_E_R040_07.ARC/Interrupt_E_R040_07/timg/Interrupt_E_R040_02_07.tpl#0',
     'LYT/ITEM/GET_061.ARC/ITEM_061_1/timg/ITEM_061_1.tpl#0',
     'PUZZLE/Z071.acrarc/Z071.ARC/lyt/timg/RAS_text08.tpl#0', 'PUZZLE/Z071.acrarc/Z071.ARC/lyt/timg/RAS_text08ap.tpl#0',
     'PUZZLE/Z071.acrarc/Z071.ARC/lyt/timg/RAS_text13.tpl#0', 'PUZZLE/Z071.acrarc/Z071.ARC/lyt/timg/RAS_text13ap.tpl#0',
-    'PUZZLE/Z081.acrarc/Z081.BRTEX#memo_n']
+    'PUZZLE/Z081.acrarc/Z081.BRTEX#memo_n',
+    'OBJ/ATC_013/ATC_013_base.brres#RAS3']   # 10/30 제보: 3D 장치 모형 글자 TAS(ITEM/061 과 같은 그림의 사본)
 
 
 def jp_image_use():
     """JP_IMAGE 자리마다 일본판 그림을 읽어 빌드 결과(없으면 유럽판) 파일의 같은 자리에 넣는다"""
     import texread
     st = Counter()
-    for key in JP_IMAGE:
+    for key in (JP_IMAGE if USE_JP_IMAGE else []):
         img = texread.get('jp', key)
         f, inner, i = split_key(key)
         if img is None or not ((OUT / f).exists() or (EUR / f).exists()):

@@ -56,7 +56,7 @@ def build_files():
     print('[1] 폰트(한글 2,350자 + 기호)'); font_ko.main()
     print('[2] 대사(BMG)'); print('   ', dict(insert_bmg.main()))
     print('[3] 이미지'); print('   ', dict(insert_tex.main())); print('    유럽판 전용', insert_tex.eu_only())
-    print('    일본판 그림 사용(TAS→RAS)', dict(insert_tex.jp_image_use()))
+    print('    일본판 그림 사용(꺼짐: 기계 이름 TAS 통일)', dict(insert_tex.jp_image_use()))
     print('[4] 대화창 이름표'); print('    ', nameplate.main())
     print('    채널 배너', banner.main())
     print('    HOME 메뉴 예/아니요', homebutton.main())
