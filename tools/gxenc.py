@@ -29,31 +29,56 @@ def _e565(v):
 
 
 def _cmpr_block(px):
-    """4x4 RGBA → 8바이트. 투명 픽셀(알파<128)이 있으면 3색+투명 모드"""
-    p = px.reshape(16, 4).astype(np.float32)
+    """4x4 RGBA → 8바이트. 투명 픽셀(알파<128)이 있으면 3색+투명 모드.
+    끝점 후보(주성분 양끝·밝기 극값 픽셀 쌍)를 모두 시험해 오차가 가장 작은 쌍을 고르고, 4색 모드는 최소제곱으로 다듬는다
+    (주성분 양끝만 쓰던 방식은 가는 글자에서 글자 속에 얼룩이 생겼다, 10/31 타이틀 글씨)"""
+    p = px.reshape(16, 4).astype(np.float64)
     tr = p[:, 3] < 128; op = p[~tr, :3]
     if len(op) == 0:
         return struct.pack('>HHI', 0, 0, 0xFFFFFFFF)
+    c565 = lambda c: _c565(np.clip(np.round(c), 0, 255))
+    cands = set()
     mean = op.mean(0)
-    cov = np.cov((op - mean).T) if len(op) > 1 and op.std() > 0 else np.eye(3)
-    try:
-        axis = np.linalg.eigh(cov)[1][:, -1]
-    except Exception:
-        axis = np.ones(3) / 3 ** .5
-    t = (op - mean) @ axis
-    v0, v1 = _c565(np.clip(mean + axis * t.max(), 0, 255)), _c565(np.clip(mean + axis * t.min(), 0, 255))
-    if tr.any():
-        if v0 > v1: v0, v1 = v1, v0
-        e0, e1 = _e565(v0), _e565(v1)
-        pal = np.stack([e0, e1, (e0 + e1) / 2])
-        idx = ((p[:, None, :3] - pal[None]) ** 2).sum(2).argmin(1); idx[tr] = 3
-    else:
-        if v0 < v1: v0, v1 = v1, v0
-        if v0 == v1:
-            return struct.pack('>HHI', v0, v1, 0)
-        e0, e1 = _e565(v0), _e565(v1)
-        pal = np.stack([e0, e1, (2 * e0 + e1) / 3, (e0 + 2 * e1) / 3])
-        idx = ((p[:, None, :3] - pal[None]) ** 2).sum(2).argmin(1)
+    if len(op) > 1 and op.std() > 0:
+        try:
+            axis = np.linalg.eigh(np.cov((op - mean).T))[1][:, -1]
+            t = (op - mean) @ axis
+            cands.add((c565(mean + axis * t.max()), c565(mean + axis * t.min())))
+        except Exception:
+            pass
+    order = np.argsort(op @ [0.299, 0.587, 0.114])
+    for a in order[-3:]:
+        for b in order[:3]:
+            cands.add((c565(op[a]), c565(op[b])))
+
+    def ev(v0, v1):
+        if tr.any():
+            if v0 > v1: v0, v1 = v1, v0
+            e0, e1 = _e565(v0), _e565(v1)
+            pal = np.stack([e0, e1, (e0 + e1) / 2])
+            d = ((p[:, None, :3] - pal[None]) ** 2).sum(2); idx = d.argmin(1)
+            err = d[np.arange(16), idx][~tr].sum(); idx[tr] = 3
+        else:
+            if v0 < v1: v0, v1 = v1, v0
+            if v0 == v1:
+                return ((op - _e565(v0)) ** 2).sum(), v0, v1, np.zeros(16, int)
+            e0, e1 = _e565(v0), _e565(v1)
+            pal = np.stack([e0, e1, (2 * e0 + e1) / 3, (e0 + 2 * e1) / 3])
+            d = ((p[:, None, :3] - pal[None]) ** 2).sum(2); idx = d.argmin(1)
+            err = d[np.arange(16), idx].sum()
+        return err, v0, v1, idx
+
+    best = min((ev(a, b) for a, b in cands), key=lambda r: r[0])
+    if not tr.any():
+        for _ in range(4):
+            err, v0, v1, idx = best
+            if v0 == v1: break
+            w = np.array([1, 0, 2 / 3, 1 / 3])[idx]
+            sol = np.linalg.lstsq(np.stack([w, 1 - w], 1), p[:, :3], rcond=None)[0]
+            r = ev(c565(sol[0]), c565(sol[1]))
+            if r[0] < best[0]: best = r
+            else: break
+    err, v0, v1, idx = best
     bits = 0
     for i in idx: bits = bits << 2 | int(i)
     return struct.pack('>HHI', v0, v1, bits)
