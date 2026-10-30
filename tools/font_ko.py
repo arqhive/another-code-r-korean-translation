@@ -166,7 +166,7 @@ def add(name, chars):
             la, w = squeeze(ch, f, sz, drop, adv, path)
         # 「보이는 폭 + adv」는 I·1·l 같은 얇은 글자에서 0에 가까워져 다음 글자에 덮인다(10/30 비교) → 글꼴 본래 간격 이상으로
         nat = round(ImageFont.truetype(path if has_glyph(path, ch) else FALLBACK, sz).getlength(ch))
-        w = (w[0], w[1], max(w[2], nat - 2))
+        w = (w[0], w[1], max(w[2], nat - 2) + REDRAW_EXTRA.get(fname, 0))
         x0, y0 = cx * (f.cw + 1), cy * (f.ch + 1)
         # 칸 오른쪽·아래 1px 틈까지 지운다(원본 「[」「]」 등은 틈까지 그려져 있어 새 글자 밑에 선으로 남았음, 10/30 제보)
         decoded[s].paste(Image.new('LA', (f.cw + 1, f.ch + 1), (0, 0)), (x0, y0))
@@ -204,6 +204,8 @@ def add(name, chars):
 EXTRA = '「」『』－＊　♪＋※○＜＞ㄱ⇔'  # 번역문에 쓰였지만 영어 폰트에 없는 기호
 # 원본 영어 글자를 한글과 같은 글꼴로 다시 그릴 글자(10/30 사용자 요청). 공백은 원래 폭 그대로 둔다(사용자 결정).
 REDRAW = ''.join(chr(c) for c in range(0x21, 0x7F)) + '…·×'
+# 다시 그린 영문의 간격 추가: 둘기마요는 「보이는 폭 − 3」이면 「DAS의」처럼 뒤 한글에 붙어 보여서(10/30 제보) 2px 넓힘
+REDRAW_EXTRA = {'dovemayo_bold.otf': 2}
 
 
 def main(charset=None):
