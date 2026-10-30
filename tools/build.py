@@ -1,5 +1,5 @@
 """한글 ISO 빌드: 폰트 → 대사(BMG) → 이미지 → 이름표 → 기타 텍스트 → main.dol → 원본 배치 유지 ISO → 검증.
-사용: python tools/build.py [출력 ISO]      (기본 work/AnotherCodeR_KO.iso)
+사용: python tools/build.py [출력 ISO] [--quick]   (기본 work/AnotherCodeR_KO.iso, --quick = 시험판: 바뀐 파일만 검증)
 유럽판 ISO에 넣지만, 일본판 ISO도 필요하다(일본판 레이아웃 묶음·메시지 구조·main.dol 문자열 위치를 참조)."""
 import filecmp
 import os
@@ -22,12 +22,18 @@ import paths
 DEFAULT_ISO = paths.WORK / 'AnotherCodeR_KO.iso'
 
 
-def verify(out_iso):
-    """결과 ISO 의 DATA 파티션을 풀어 모든 파일을 (빌드 결과가 있으면 그것, 없으면 유럽판 원본)과 비교"""
+def verify(out_iso, quick=False):
+    """결과 ISO 의 DATA 파티션을 풀어 모든 파일을 (빌드 결과가 있으면 그것, 없으면 유럽판 원본)과 비교.
+    quick: 시험판용 — 바뀐 파일(work/build)만 꺼내 대조(릴리즈는 전체)"""
     chk = paths.WORK / 'verify'
     if chk.exists():
         shutil.rmtree(chk)
-    subprocess.run([paths.rel(paths.wit()), 'extract', paths.rel(out_iso), paths.rel(chk), '--psel', 'DATA', '-q', '-o'],
+    sel = []
+    if quick:
+        for dp, _, fs in os.walk(paths.BUILD):
+            for f in fs:
+                sel += ['--files', '+/' + os.path.relpath(os.path.join(dp, f), paths.BUILD).replace(os.sep, '/')]
+    subprocess.run([paths.rel(paths.wit()), 'extract', paths.rel(out_iso), paths.rel(chk), '--psel', 'DATA', '-q', '-o', *sel],
                    check=True, cwd=paths.ROOT)
     n = bad = 0
     for sub in ('files', 'sys'):
@@ -44,7 +50,9 @@ def verify(out_iso):
     shutil.rmtree(chk)
     if bad:
         raise SystemExit(f'검증 실패: {bad}/{n}개 파일이 다릅니다')
-    print(f'  검증: 파일 {n}개 모두 일치')
+    if quick and n != len(sel) // 2:
+        raise SystemExit(f'검증 실패: 바뀐 파일 {len(sel) // 2}개 중 {n}개만 ISO 에서 찾음')
+    print(f'  검증: {"바뀐 " if quick else ""}파일 {n}개 모두 일치')
 
 
 def build_files():
@@ -64,12 +72,13 @@ def build_files():
     print('[6] main.dol'); print('   ', patch_dol.main())
 
 
-def main(out_iso=DEFAULT_ISO):
+def main(out_iso=DEFAULT_ISO, quick=False):
     build_files()
     print('[7] ISO(원본 배치 유지)'); inplace.main(str(out_iso))
-    print('[8] 검증'); verify(out_iso)
+    print('[8] 검증' + (' (시험판: 바뀐 파일만)' if quick else '')); verify(out_iso, quick)
     print('완료:', out_iso)
 
 
 if __name__ == '__main__':
-    main(sys.argv[1] if len(sys.argv) > 1 else DEFAULT_ISO)
+    args = [a for a in sys.argv[1:] if a != '--quick']
+    main(args[0] if args else DEFAULT_ISO, '--quick' in sys.argv)

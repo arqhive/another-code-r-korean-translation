@@ -59,8 +59,28 @@ def _cmpr_block(px):
     return struct.pack('>HHI', v0, v1, bits)
 
 
+_CACHE = None
+
+
 def encode(img, f):
+    """그림 → GX 텍스처 자료. 결과는 work/cache/gxenc 에 저장해 두고 같은 입력(이 파일 소스+형식+크기+픽셀)이면 재사용"""
+    global _CACHE
+    import hashlib, os
     a = np.asarray(img.convert('RGBA'), np.uint8)
+    if _CACHE is None:
+        import paths
+        _CACHE = (paths.WORK / 'cache' / 'gxenc', hashlib.sha1(open(__file__, 'rb').read()).hexdigest()[:12])
+        _CACHE[0].mkdir(parents=True, exist_ok=True)
+    key = hashlib.sha1(f'{_CACHE[1]}|{f}|{a.shape}'.encode() + a.tobytes()).hexdigest()
+    p = _CACHE[0] / key
+    if p.exists():
+        return p.read_bytes()
+    out = _encode(a, f)
+    p.write_bytes(out)
+    return out
+
+
+def _encode(a, f):
     if f == 14:
         b = _blocks(a, 8, 8); out = bytearray()
         for by in range(b.shape[0]):

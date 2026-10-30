@@ -208,13 +208,32 @@ REDRAW = ''.join(chr(c) for c in range(0x21, 0x7F)) + '…·×'
 REDRAW_EXTRA = {'dovemayo_bold.otf': 2}
 
 
+def cache_key(name, chars):
+    """폰트 결과가 달라질 수 있는 입력 전부(이 파일·brfnt.py 소스, 글꼴 파일, 원본 폰트, 글자 목록, 설정)"""
+    import hashlib
+    h = hashlib.sha1()
+    for p in (__file__, brfnt.__file__, font_file(SPEC[name][0]), FALLBACK, SRC / name):
+        h.update(open(p, 'rb').read())
+    h.update(repr((SPEC[name], ''.join(chars))).encode())
+    return h.hexdigest()[:16]
+
+
 def main(charset=None):
-    """charset: 넣을 글자를 담은 텍스트 파일(없으면 KS X 1001 한글 2,350자 + EXTRA)"""
+    """charset: 넣을 글자를 담은 텍스트 파일(없으면 KS X 1001 한글 2,350자 + EXTRA)
+    결과는 work/cache/font 에 두고 입력이 같으면 다시 그리지 않는다(빌드 시간 단축)."""
+    import shutil
     chars = ksx1001_hangul() + list(EXTRA)
     if charset:
         chars = sorted(set(open(charset, encoding='utf-8').read()) - set('\n\r'))
+    cdir = paths.WORK / 'cache' / 'font'; cdir.mkdir(parents=True, exist_ok=True)
     for name in SPEC:
+        c = cdir / f'{name}.{cache_key(name, chars)}'
+        if c.exists():
+            DST.mkdir(parents=True, exist_ok=True); shutil.copyfile(c, DST / name)
+            print(f'  {name}: 캐시 사용(입력 같음)')
+            continue
         add(name, chars)
+        shutil.copyfile(DST / name, c)
 
 
 if __name__ == '__main__':
